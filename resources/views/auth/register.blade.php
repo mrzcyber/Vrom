@@ -6,11 +6,17 @@
                 <p class="text-sm f font-light text-second">we will help you get ready today</p>
             </div>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
               <!-- Validation Errors -->
           <div class="flex flex-col col-span-2 gap-3">
             <x-validation-errors class="mb-5" />
           </div>
+
+          {{-- validation email --}}
+        @if(auth()->user()?->hasVerifiedEmail())
+            <p>Email sudah terverifikasi ✅</p>
+        @endif
+
             @csrf
             <section class=" w-[490px]   bg-white flex flex-col items-center py-10 rounded-xl">
                     <div class="relative w-24 h-24 block">
@@ -27,7 +33,7 @@
                                 <img src="{{ asset('svgs/ic-btn_delete.svg') }}" alt="action file" id="button-profil" >
                             </button>
                         
-                        <input type="file" id="photo" name="photo" accept="image/*" class="hidden">
+                        <input type="file" id="photo" name="profile_photo_path" accept="image/*" class="hidden">
                     </div>
                     
                     <div class="flex flex-col gap-2 mt-10">
