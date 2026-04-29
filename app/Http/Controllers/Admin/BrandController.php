@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\BrandRequest;
 use App\Models\Brand;
-use Illuminate\Http\Request;
 
 class BrandController
 {
@@ -27,40 +27,46 @@ class BrandController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
-        //
+        $data=['name'=>$request->name];
+        Brand::create($data);
+        dd($data);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Brand $brand)
     {
-        //
+        dd($brand);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Brand $brand)
     {
-        //
+       dd($brand);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BrandRequest $request, Brand $brand)
     {
-        //
+        $data = $brand->update([
+            'name'=>$request->name
+        ]);
+        dd($data);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Brand $brand)
     {
-        //
+        $data = $brand->delete();
+        dd($data);
     }
 }

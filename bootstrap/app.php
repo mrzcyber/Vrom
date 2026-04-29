@@ -16,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+          $middleware->validateCsrfTokens(except: [
+        '*',
+    ]);
+    
          $middleware->alias([
             'admin'=>AdminMiddleware::class
          ]);
@@ -23,6 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+
 
     RateLimiter::for('register', function (Request $request) {
     return Limit::perMinute(5)->by($request->ip());
