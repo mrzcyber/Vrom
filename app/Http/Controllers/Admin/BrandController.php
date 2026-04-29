@@ -30,8 +30,8 @@ class BrandController
     public function store(BrandRequest $request)
     {
         $data=['name'=>$request->name];
-        Brand::create($data);
-        dd($data);
+       $result = Brand::create($data);
+        dd($result);
     }
 
     /**
