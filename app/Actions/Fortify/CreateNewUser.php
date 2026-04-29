@@ -22,14 +22,23 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => $this->passwordRules(),
+            'password' => ['required', 'string', 'min:8'],
+            'phone' =>['required'],
+            'profile_photo_path'=>['image','max:2048'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
+
+  $photoPath = null;
+if (request()->hasFile('profile_photo_path')) {
+    $photoPath = request()->file('profile_photo_path')->store('profile', 'public');
+}
 
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'phone' => $input['phone'],
+            'profile_photo_path' => $photoPath
         ]);
     }
 }
