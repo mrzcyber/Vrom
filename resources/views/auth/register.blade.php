@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-slot name="title">Login - {{ config('app.name') }}</x-slot>
+    <x-slot name="title">Register - {{ config('app.name') }}</x-slot>
         <main class="w-full  bg-bmain flex flex-col justify-center items-center  p-16">
             <div class="flex flex-col items-center justify-center mb-5  ">
                 <h1 class="text-lg font-bold font-poppins text-main">Sign In & Drive</h1>
@@ -60,7 +60,7 @@
                         </label>
                         <input type="password" name="password" id="password" placeholder="Insert Your Password" required autofocus class="text-base w-[430px] rounded-3xl font-medium focus:border-main  focus:outline-none border border-gray-500 p placeholder:font-normal placeholder:text-second">
                     </div>
-                    {{-- submin --}}
+                    {{-- submit --}}
                     <button type="submit" class="shadow-md shadow-indigo-400 rounded-3xl w-[430px]  h-11 flex justify-center items-center font-poppins mt-14 text-white font-semibold bg-indigo-600 hover:bg-indigo-700 transition-all duration-200">Create My Account</button>
                     {{-- sign in --}}
                     <a href="{{ route('login') }}" class="w-[430px] h-11 flex justify-center items-center border border-gray-600 rounded-3xl mt-6 font-poppins font-medium text-main hover:border-indigo-500 cursor-pointer transition-all duration-200 "> Sign In</a>
