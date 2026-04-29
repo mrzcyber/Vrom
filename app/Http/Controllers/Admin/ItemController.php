@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\ItemRequest;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class ItemController
@@ -11,7 +13,10 @@ class ItemController
      */
     public function index()
     {
-        //
+        $data = Item::with(['image'=>function($query){
+            $query->oldest()->limit(1);
+        }])->get();
+        dd($data);
     }
 
     /**
@@ -19,21 +24,30 @@ class ItemController
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
-        //
+        $item = Item::create($request->only(['name','type_id','brand_id','features','price','star','review']));
+
+        if($request->hasFile('image')){
+            foreach($request->file('image') as $file){
+                $url = $file->store('produk','public');
+                $item->image()->create(['path'=>$url]);
+            }
+        }
+
+        dd($item->load('image'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Item $item)
     {
         //
     }

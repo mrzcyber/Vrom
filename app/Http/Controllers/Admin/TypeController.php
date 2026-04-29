@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\TypeRequest;
 use App\Models\Type;
-use Illuminate\Http\Request;
 
 class TypeController
 {

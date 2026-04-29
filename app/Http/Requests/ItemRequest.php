@@ -28,9 +28,10 @@ class ItemRequest extends FormRequest
             'type_id' => 'required|exists:types,id',
             'brand_id' => 'required|exists:brands,id',
             'features' => 'nullable|string',
-            'price' => 'required|numeric',
-            'star' => 'nullable|numeric',
-            'review' => 'nullable|numeric',
+            'price' => 'required|integer|min:0',
+            'star' => 'nullable|numeric|min:0|max:5',
+            'review' => 'nullable|integer|min:0',
+            'image.*'=>'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
 
         ];
     }
