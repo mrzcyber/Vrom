@@ -1,9 +1,5 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
-
+      
         <x-validation-errors class="mb-4" />
 
         @session('status')
@@ -42,7 +38,8 @@
                 <x-button class="ms-4">
                     {{ __('Log in') }}
                 </x-button>
+                <a href="{{ route('password.request') }}" class="text-black font-bold ">forgor</a>
             </div>
         </form>
-    </x-authentication-card>
+
 </x-guest-layout>
