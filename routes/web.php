@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Front\LandingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,6 +12,9 @@ Route::get('/', function () {
 })->name('index');
 
 
+Route::name('front.')->group(function(){
+Route::get('/a',[LandingController::class,'index'])->name('index');
+});
 
 // vrom route
 
