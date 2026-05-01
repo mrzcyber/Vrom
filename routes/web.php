@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\DetailController;
 use App\Http\Controllers\Front\LandingController;
+use App\Http\Controllers\Front\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +27,7 @@ Route::middleware([ 'auth:sanctum',
     'verified',])->group(function(){
         Route::get('checkout/{item}',[CheckoutController::class,'index']);
         Route::post('checkout/{item}',[CheckoutController::class,'store'])->name('checkout.store');
+        Route::get('payment/{id}',[PaymentController::class,'index'])->name('payment');
     });
 });
 

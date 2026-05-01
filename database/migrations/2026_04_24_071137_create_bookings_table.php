@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->text('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('zip')->nullable();
-            $table->string('payment_type');
-            $table->string('payment_status');
-            $table->string('payment_url');
+            $table->string('name');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->text('address');
+            $table->string('city');
+            $table->string('zip');
+            $table->string('payment_type')->nullable();
+            $table->string('payment_status')->default('pending');
+            $table->string('payment_url')->nullable();
             $table->integer('total_price');
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
