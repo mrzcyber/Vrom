@@ -1,3 +1,18 @@
+  // alpine js
+  import Alpine from 'alpinejs'
+
+  window.Alpine = Alpine
+  Alpine.start()
+
+  // aos library
+  import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+AOS.init({ once: true, duration: 300 })
+
+
+// main content
+
   const input = document.getElementById('photo')
   const prev = document.getElementById('preview')
   const add = document.getElementById('btn-add')
