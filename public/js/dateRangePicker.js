@@ -47,7 +47,6 @@ document.addEventListener("alpine:init", () => {
 			const date = dateObject.getDate();
 
 			return ("0" + date).slice(-2) + " " + ("0" + month).slice(-2) + " " + year;
-			// return year + "-" + ("0" + month).slice(-2) + "-" + ("0" + date).slice(-2);
 		},
 
 		init() {
@@ -92,6 +91,14 @@ document.addEventListener("alpine:init", () => {
 			return today.toDateString() === d.toDateString();
 		},
 
+		// [FIX] Cek apakah tanggal sudah lewat
+		isPastDate(date) {
+			const today = new Date();
+			today.setHours(0, 0, 0, 0);
+			const d = new Date(this.year, this.month, date);
+			return d < today;
+		},
+
 		isDateFrom(date) {
 			const d = new Date(this.year, this.month, date);
 
@@ -120,14 +127,12 @@ document.addEventListener("alpine:init", () => {
 
 		outputDateValues() {
 			if (this.dateFrom) {
-				// this.outputDateFromValue = this.dateFrom.toDateString();
-				this.outputDateFromValue = this.convertToYmd(this.dateFrom); //for showing only
-				this.dateFromYmd = this.convertToYmd(this.dateFrom); //for RESULT input field
+				this.outputDateFromValue = this.convertToYmd(this.dateFrom);
+				this.dateFromYmd = this.convertToYmd(this.dateFrom);
 			}
 			if (this.dateTo) {
-				// this.outputDateToValue = this.dateTo.toDateString();
-				this.outputDateToValue = this.convertToYmd(this.dateTo); //for showing only
-				this.dateToYmd = this.convertToYmd(this.dateTo); //for RESULT input field
+				this.outputDateToValue = this.convertToYmd(this.dateTo);
+				this.dateToYmd = this.convertToYmd(this.dateTo);
 			}
 		},
 
@@ -141,7 +146,11 @@ document.addEventListener("alpine:init", () => {
 		},
 
 		getDateValue(date, temp) {
-			// if we are in mouse over mode but have not started selecting a range, there is nothing more to do.
+			// [FIX] Tolak tanggal yang sudah lewat
+			if (this.isPastDate(date)) {
+				return;
+			}
+
 			if (temp && !this.selecting) {
 				return;
 			}
@@ -179,7 +188,6 @@ document.addEventListener("alpine:init", () => {
 		getNoOfDays() {
 			let daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
 
-			// find where to start calendar day of week
 			let dayOfWeek = new Date(this.year, this.month).getDay();
 			let blankdaysArray = [];
 			for (var i = 1; i <= dayOfWeek; i++) {

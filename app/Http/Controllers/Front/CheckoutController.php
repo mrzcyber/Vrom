@@ -18,7 +18,7 @@ class CheckoutController
 
     public function store(CheckoutRequest $request, Item $item){
             $input = $request->validated();
-            $type = $item->type?->name;
+            $type = $item->name;
             $price = $item->price;
             $startDate = Carbon::createFromFormat('d m Y', $request->start_date);
             $endDate = Carbon::createFromFormat('d m Y', $request->end_date);

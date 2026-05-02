@@ -124,7 +124,8 @@
                                      date) == true,
                                  'bg-primary text-white rounded-r-full': isDateTo(date) ==
                                      true,
-                                 'bg-[#E2E1FF]': isInRange(date) == true
+                                 'bg-[#E2E1FF]': isInRange(date) == true,
+                                 'text-gray-300 cursor-not-allowed': isPastDate(date) == true
                              }">
                         </div>
                       </div>
