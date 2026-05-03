@@ -15,7 +15,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                poppins: ['Poppins','sans-serif']
+                poppins: ['Poppins','sans-serif'],
+                porter: ['porter','sans-serif']
             },
             colors:{
                 primary: "#4743FB",

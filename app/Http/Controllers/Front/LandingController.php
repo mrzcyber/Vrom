@@ -9,6 +9,6 @@ class LandingController
 {
     public function index(){
         $data = Item::with(['image','type','brand'])->latest()->take(4)->get()->reverse();
-        // return view
+        return view('front.landing');
     }
 }
