@@ -27,10 +27,10 @@ class CheckoutController
          $endDate = Carbon::createFromFormat('d/m/Y', str_replace(' ', '/', $request->end_date));
          $input['end_date'] = $endDate->format('Y-m-d');
          $input['start_date'] = $startDate->format('Y-m-d');
-         $input['day'] = $day = $startDate->diffInDays($endDate);
+         $input['total_day'] = $day = $startDate->diffInDays($endDate);
 
         if($day == 0 ){
-        $day = 1;
+        $input['total_day'] = $day = 1;
         };
 
         $input['total_price'] = $total = $day * $price;

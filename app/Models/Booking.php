@@ -17,6 +17,7 @@ class Booking extends Model
         'name',
         'start_date',
         'end_date',
+        'total_day',
         'address',
         'city',
         'zip',
