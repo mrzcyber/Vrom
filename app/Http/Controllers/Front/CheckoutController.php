@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Models\Booking;
 use App\Models\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController
 {
@@ -17,21 +19,25 @@ class CheckoutController
     }
 
     public function store(CheckoutRequest $request, Item $item){
-            $input = $request->validated();
-            $type = $item->name;
-            $price = $item->price;
-            $startDate = Carbon::createFromFormat('d m Y', $request->start_date);
-            $endDate = Carbon::createFromFormat('d m Y', $request->end_date);
+         $input = $request->validated();
+         
+         $input['type']= $type = $item->name;
+         $input['price'] = $price = $item->price;
+         $startDate = Carbon::createFromFormat('d/m/Y', str_replace(' ', '/', $request->start_date));
+         $endDate = Carbon::createFromFormat('d/m/Y', str_replace(' ', '/', $request->end_date));
+         $input['end_date'] = $endDate->format('Y-m-d');
+         $input['start_date'] = $startDate->format('Y-m-d');
+         $input['day'] = $day = $startDate->diffInDays($endDate);
 
-            $day = $startDate->diffInDays($endDate);
-            $total = $price * $day;
-            dd([
-                'input'=>$input,
-                'type'=>$type,
-                'price'=>$price,
-                "day"=>$day,
-                'total'=>$total
-            ]);
+        if($day == 0 ){
+        $day = 1;
+        };
+
+        $input['total_price'] = $total = $day * $price;
+        $input['item_id'] = $item->id;
+        $input['user_id'] = Auth::user()->id;
+        $boking = Booking::create($input);
+        return redirect()->route('front.payment',$boking->id);
 
             
     }
