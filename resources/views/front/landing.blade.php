@@ -1,3 +1,51 @@
 <x-app-layout>
-<p>hello world</p>
+<main class="w-full mt-10  flex flex-col justify-center items-center">
+<section  class="w-full flex justify-center items-center relative">
+    <h1 class=" uppercase font-poppins font-extrabold text-bmain text-[90px] md:text-[180px] lg:text-[220px] flex flex-col leading-tight lg:leading-none ">
+        <p data-aos="fade-right" data-aos-duration="1000">
+            New
+        </p>
+        <p data-aos="fade-left" data-aos-duration="1000">
+        Porsche
+        </p> 
+    </h1>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] lg:w-[65%] flex justify-center items-center">
+        <img 
+            data-aos="zoom-in" 
+            data-aos-duration="1000" 
+            data-aos-delay="600"
+            src="/img/porsche.webp" 
+            alt="main content" 
+            class="w-full">
+    </div>
+</section>
+<article class="flex flex-row items-center justify-center md:mt-7  w-full scale-50 md:scale-100">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex font-poppins flex-col border-r items-center border-second/75 pr-12">
+        <h2 class="font-bold text-main text-[30px]/7">380</h2>
+        <p class="text-second font-light ">Horse Power</p>
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1300" class="flex font-poppins flex-col border-r items-center border-second/75 px-12">
+        <h2 class="font-bold text-main text-[30px]/7">12S</h2>
+        <p class="text-second font-light ">Speed AT</p>
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1600" class="flex font-poppins flex-col border-r  items-center border-second/75 px-12">
+        <h2 class="font-bold text-main text-[30px]/7">AWD</h2>
+        <p class="text-second font-light ">Drive</p>
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1900" class="flex font-poppins flex-col  items-center  px-12">
+        <h2 class="font-bold text-main text-[30px]/7">A.I</h2>
+        <p class="text-second font-light ">Tracking</p>
+    </div>
+  <div class="p-1 ml-10 mb-2 shadow-lg hover:shadow-indigo-700 shadow-indigo-500 rounded-full bg-primary group" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="2300">
+          <a href="#popularCars" class=" w-32 flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1.5 px-1 ">
+            <p class="transition-all duration-[320ms] translate-x-5 group-hover:translate-x-1">
+              Rent Now
+            </p>
+            <img src="/svgs/ic-arrow-right.svg"
+                 class="opacity-0 group-hover:opacity-100 group-hover:translate-x-5 transition-all duration-[320ms]"
+                 alt="arrow nav">
+          </a>
+        </div>
+</article>
+</main>
 </x-app-layout>

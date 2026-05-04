@@ -1,5 +1,5 @@
 <nav class="w-full flex flex-row shadow-sm bg-white justify-between items-center gap-10 py-6 px-10">
-    <a href="/" class="uppercase  text-main text-[25px] font-porter" >Vrom</a>
+    <a href="/" class="uppercase  text-main text-[26px] font-porter" >Vrom</a>
         <ul class="w-full hidden md:flex justify-center items-center ">
             <li class="list-none  w-full max-w-xl flex justify-between items-center">
                 <a href="/" class="font-poppins text-second font-normal hover:text-main transition-all duration-300 ">Home</a>
@@ -47,7 +47,7 @@
     
     {{-- mobile --}}
     
-    <div x-data="{ open: false }" class="relative md:hidden ">
+    <div x-data="{ open: false }" class="relative md:hidden z-50  ">
                 
         <button 
             @click="open = !open" type="button" class="">
@@ -65,7 +65,7 @@
     x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 translate-x-0"
     x-transition:leave-end="opacity-0 translate-x-full"
-        class="fixed top-1 right-1  w-52  border border-second rounded-lg p-3 px-5">
+        class=" bg-slate-200 md:bg-transparent fixed top-1 right-1  w-52  border border-second rounded-lg p-3 px-5">
         <li class="list-none  w-full max-w-xl flex flex-col gap-3 justify-between  items-start">
                 @auth
                 <div class="w-full flex flex-row gap-2 ">

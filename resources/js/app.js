@@ -6,9 +6,9 @@
 
   // aos library
   import AOS from 'aos'
-import 'aos/dist/aos.css'
 
-AOS.init({ once: true, duration: 300 })
+
+AOS.init({ once: true, duration: 300,  offset: 0  })
 
 
 // main content
@@ -18,7 +18,7 @@ AOS.init({ once: true, duration: 300 })
   const add = document.getElementById('btn-add')
   const del =document.getElementById('btn-del')
 
-  
+  if (input && prev && add && del) {
   input.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
@@ -39,3 +39,4 @@ AOS.init({ once: true, duration: 300 })
     add.classList.remove('hidden')
     del.classList.add('hidden')
   })
+}
