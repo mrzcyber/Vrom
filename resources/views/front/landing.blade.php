@@ -52,50 +52,82 @@
 <h2 class="text-main font-bold font-poppins text-[20px] md:text-[25px]">Popular Cars</h2>
 <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
-    <a  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md hover:shadow-black/70 hover:scale-105 transition-all duration-500">
+    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold text-[20px]">Taycan 4S</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px]">Electric car</p>
-        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center"></div>
+        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center hover:scale-105 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format(10000000,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
             <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
         </article>
     </a>
-    <a  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md hover:shadow-black/70 hover:scale-105 transition-all duration-500">
+    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold text-[20px]">Taycan 4S</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px]">Electric car</p>
-        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center"></div>
+        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center hover:scale-105 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format(10000000,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
             <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
         </article>
     </a>
-    <a  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1100" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md hover:shadow-black/70 hover:scale-105 transition-all duration-500">
-        <h3 class="font-poppins text-main font-semibold text-[20px]">Taycan 4S</h3>
-        <p class="text-second font-poppins font-normal mt-1 text-[13px]">Electric car</p>
-        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center"></div>
-        <article class="mt-3 flex flex-row w-full justify-between items-center">
-            <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format(10000000,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
-            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
-        </article>
-    </a>
-    <a  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1400" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md hover:shadow-black/70 hover:scale-105 transition-all duration-500">
-        <h3 class="font-poppins text-main font-semibold text-[20px]">Taycan 4S</h3>
-        <p class="text-second font-poppins font-normal mt-1 text-[13px]">Electric car</p>
-        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center"></div>
-        <article class="mt-3 flex flex-row w-full justify-between items-center">
-            <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format(10000000,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
-            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
-        </article>
-    </a>
-
-
-
-
-
-
 
 </div>
+</section>
+
+<section class="w-full mt-10 flex flex-row justify-between  mb-10 px-2  md:px-20">
+        <div  data-aos="fade-right" data-aos-offset="100" data-aos-duration="1000" class="overflow-hidden w-full ">
+            <img src="/img/illustration-01.webp" alt="benefit photo" class="w-full object-cover object-center ">
+    </div>
+    <div data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500"  class="w-full md:pl-5 flex flex-col justify-start items-start  ">
+        <h2 class="font-semibold font-poppins text-main md:text-[20px] lg:text-[35px]">Extra Benefits</h2>
+        <p class="text-second font-poppins font-normal text-[10px] md:text-[13px] lg:text-[25px] ">You drive safety and famous</p>
+        <div data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="600"  class="flex flex-row mt-5 gap-2 lg:mt-12 md:gap-4">
+            <img src="/svgs/ic-car.svg" alt="icon car" class="bg-black md:rounded-2xl rounded-lg md:p-2 p-1 w-10 h-10 md:h-full scale-90 md:scale-100 md:w-12 lg:w-20">
+            <div class="flex flex-col">
+                  <h2 class="font-semibold font-poppins text-main text-[11px] md:text-[15px] lg:text-[25px]">Delivery</h2>
+                <p class="text-second font-poppins font-normal text-[10px] md:text-[13px] lg:text-[25px] ">Just sit tight and wait</p>
+            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="700"  class="flex flex-row mt-2 gap-2 lg:mt-8 md:gap-4">
+            <img src="/svgs/ic-card.svg" alt="icon card" class="bg-black md:rounded-2xl rounded-lg md:p-2 p-1 w-10 h-10 md:h-full scale-90 md:w-12 md:scale-100 lg:w-20">
+            <div class="flex flex-col">
+                  <h2 class="font-semibold font-poppins text-main text-[11px] md:text-[15px] lg:text-[25px]">Pricing</h2>
+                <p class="text-second font-poppins font-normal text-[10px] md:text-[13px] lg:text-[25px] ">12x Pay installment</p>
+            </div>
+        </div>
+        <div data-aos="fade-up"  data-aos-duration="1000" data-aos-delay="800"  class="flex flex-row mt-2 gap-2 lg:mt-8 md:gap-4">
+            <img src="/svgs/ic-securityuser.svg" alt="icon secure" class="bg-black md:rounded-2xl rounded-lg md:p-2 p-1 w-10 h-10 md:h-full scale-90 md:scale-100 md:w-12 lg:w-20">
+            <div class="flex flex-col">
+                  <h2 class="font-semibold font-poppins text-main text-[11px] md:text-[15px] lg:text-[25px]">Secure</h2>
+                <p class="text-second font-poppins font-normal text-[10px] md:text-[13px] lg:text-[25px] ">Use your plate number</p>
+            </div>
+        </div>
+        <div data-aos="fade-up"  data-aos-duration="1000" data-aos-delay="900"  class="flex flex-row mt-2 gap-2 lg:mt-8 md:gap-4">
+            <img src="/svgs/ic-convert3dcube.svg" alt="icon trade" class="bg-black md:rounded-2xl rounded-lg md:p-2 p-1 w-10 h-10 md:h-full scale-90 md:scale-100 md:w-12 lg:w-20">
+            <div class="flex flex-col">
+                  <h2 class="font-semibold font-poppins text-main text-[11px] md:text-[15px] lg:text-[25px]">Fast Trade</h2>
+                <p class="text-second font-poppins font-normal text-[10px] md:text-[13px] lg:text-[25px] ">Change car faster</p>
+            </div>
+        </div>
+
+
+
+
+
+          <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="p-1 mt-3 md:mt-10 mb-2 shadow-lg scale-90 md:scale-100 hover:shadow-indigo-700 shadow-indigo-500 rounded-full bg-primary group  ">
+          <a href="#popularCars" class=" w-44 md:w-52 lg:w-96 lg:py-2 flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full md:py-1 px-1 ">
+            <p class="transition-all duration-[320ms]  lg:text-[25px] translate-x-10 md:translate-x-14 lg:translate-x-28 group-hover:translate-x-1">
+              Explore cars
+            </p>
+            <img src="/svgs/ic-arrow-right.svg"
+                 class="opacity-0 group-hover:opacity-100 group-hover:translate-x-10 md:group-hover:translate-x-20 lg:group-hover:translate-x-40 transition-all duration-[320ms]"
+                 alt="arrow nav">
+          </a>
+        </div>
+
+
+    </div>
+
 </section>
 
 </main>
