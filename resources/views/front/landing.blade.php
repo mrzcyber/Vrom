@@ -52,24 +52,19 @@
 <h2 class="text-main font-bold font-poppins text-[20px] md:text-[25px]">Popular Cars</h2>
 <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
+    @foreach ($data as $item)
+        
     <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
-        <h3 class="font-poppins text-main font-semibold text-[20px]">Taycan 4S</h3>
-        <p class="text-second font-poppins font-normal mt-1 text-[13px]">Electric car</p>
-        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center hover:scale-105 transition-all duration-500"></div>
+        <h3 class="font-poppins text-main font-semibold text-[20px] uppercase">{{ $item->name }}</h3>
+        <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
+        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-105 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
-            <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format(10000000,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
+            <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format($item->price,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
             <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
         </article>
     </a>
-    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="" class=" shrink-0 w-52 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
-        <h3 class="font-poppins text-main font-semibold text-[20px]">Taycan 4S</h3>
-        <p class="text-second font-poppins font-normal mt-1 text-[13px]">Electric car</p>
-        <div class="md:w-56 w-48 overflow-hidden  rounded-lg bg-black mt-2"><img src="/img/car-01.webp" alt=" photo product " class="w-full object-cover object-center hover:scale-105 transition-all duration-500"></div>
-        <article class="mt-3 flex flex-row w-full justify-between items-center">
-            <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format(10000000,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
-            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
-        </article>
-    </a>
+    @endforeach
+
 
 </div>
 </section>
