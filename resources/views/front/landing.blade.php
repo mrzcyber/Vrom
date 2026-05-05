@@ -163,16 +163,16 @@
 </div>
 </section>
 {{-- qa --}}
-<section class="w-full mt-10 flex flex-col items-center ">
+<section class="w-full mt-10 flex flex-col items-center pb-32">
 <h1 class="text-main font-poppins font-bold text-[25px]">Frequently Asked Questions</h1>
 <p class="text-second font-poppins font-normal text-[14px]">learn more about Vrom and get a success</p>
 <div class="flex flex-row justify-center items-center gap-5">
-    <div class="flex flex-col w-full items-start h-[35rem]  mt-10">
+    <div class="flex flex-col w-full items-start  mt-10">
 
-<div class="accordion flex flex-col w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+<div class="accordion flex flex-col w-48 md:w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
      style="max-height: 40px; transition: max-height 0.5s ease;">
     <div class="flex flex-row justify-between w-full items-center">
-        <h3 class="text-main font-poppins font-medium">Rental Period</h3>
+        <h3 class="text-main font-poppins font-medium text-[12px] md:text-[15px] lg:text-[17px]">Rental Period</h3>
         <button>
             <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
         </button>
@@ -183,10 +183,10 @@ The minimum rental duration is one (1) day, equivalent to twenty-four (24) hours
 Any extension of the rental period shall be subject to mutual agreement between the parties.
     </p>
 </div>
-<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+<div class="accordion flex flex-col w-48 md:w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
      style="max-height: 40px; transition: max-height 0.5s ease;">
     <div class="flex flex-row justify-between w-full items-center">
-        <h3 class="text-main font-poppins font-medium">Renter Requirements</h3>
+        <h3 class="text-main font-poppins font-medium text-[12px] md:text-[15px] lg:text-[17px]">Renter Requirements</h3>
         <button>
             <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
         </button>
@@ -197,10 +197,10 @@ The vehicle may not be taken outside the island of Bali without prior written au
 
     </p>
 </div>
-<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+<div class="accordion flex flex-col w-48 md:w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
      style="max-height: 40px; transition: max-height 0.5s ease;">
     <div class="flex flex-row justify-between w-full items-center">
-        <h3 class="text-main font-poppins font-medium">Late Return & Vehicle Return</h3>
+        <h3 class="text-main font-poppins font-medium text-[12px] md:text-[15px] lg:text-[17px]">Late Return </h3>
         <button>
             <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
         </button>
@@ -214,11 +214,11 @@ The Company shall not be held responsible for any personal belongings left insid
     </div>
     
 
-    <div class="flex flex-col w-full items-start h-[35rem]  mt-10">
-<div class="accordion flex flex-col w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+    <div class="flex flex-col w-full items-start  mt-10">
+<div class="accordion flex flex-col w-48 md:w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
      style="max-height: 40px; transition: max-height 0.5s ease;">
     <div class="flex flex-row justify-between w-full items-center">
-        <h3 class="text-main font-poppins font-medium"> Rental Fees</h3>
+        <h3 class="text-main font-poppins font-medium text-[12px] md:text-[15px] lg:text-[17px]"> Rental Fees</h3>
         <button>
             <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
         </button>
@@ -228,10 +228,10 @@ The Company shall not be held responsible for any personal belongings left insid
 Should the renter cancel the booking, a cancellation charge of fifty percent (50%) of the rental fee shall apply.
     </p>
 </div>
-<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+<div class="accordion flex flex-col w-48 md:w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
      style="max-height: 40px; transition: max-height 0.5s ease;">
     <div class="flex flex-row justify-between w-full items-center">
-        <h3 class="text-main font-poppins font-medium">General Provisions</h3>
+        <h3 class="text-main font-poppins font-medium text-[12px] md:text-[15px] lg:text-[17px]">General Provisions</h3>
         <button>
             <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
         </button>
@@ -242,10 +242,10 @@ The renter must provide complete and accurate personal identification and full v
 
     </p>
 </div>
-<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+<div class="accordion flex flex-col w-48 md:w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
      style="max-height: 40px; transition: max-height 0.5s ease;">
     <div class="flex flex-row justify-between w-full items-center">
-        <h3 class="text-main font-poppins font-medium">Obligations  </h3>
+        <h3 class="text-main font-poppins font-medium text-[12px] md:text-[15px] lg:text-[17px]">Obligations  </h3>
         <button>
             <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
         </button>
@@ -264,7 +264,31 @@ To settle the full rental payment prior to vehicle handover.
 
 </section>
 
+<section class="w-full flex flex-row relative bg-main px-8 md:px-16 lg:px-32 ">
+<div data-aos="fade-right"  data-aos-offset="100" data-aos-duration="1000" class="flex w-full flex-col py-10 ">
+    <h2 class="font-poppins font-bold text-white text-[20px] md:text-[25px] text-shadow-lg text-shadow-white">Drive Yours Today.</h2>
+    <h2 class="font-poppins font-bold text-white text-[20px] md:text-[25px] text-shadow-lg text-shadow-white">Drive Faster.</h2>
+<p class="text-second font-poppins font-normal text-[13px] ">Get an instant booking to catch up wheatever</p>
+<p class="text-second font-poppins font-normal text-[13px] ">you really want to achieve today. yes</p>
+  <div class="p-1 mt-7 mb-2 shadow-lg hover:shadow-indigo-700 shadow-indigo-500 rounded-full w-44 bg-primary group">
+          <a href="#popularCars" class=" w w-[167px] flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1 px-2">
+            <p class="transition-all duration-[320ms] translate-x-8 group-hover:translate-x-1">
+              Rent Now
+            </p>
+            <img src="/svgs/ic-arrow-right.svg"
+                 class="opacity-0 group-hover:opacity-100 group-hover:translate-x-8 transition-all duration-[320ms]"
+                 alt="arrow nav">
+          </a>
+        </div>
+</div>
+<div class="w-full">
 
+</div>
+    <img src="/img/porsche.webp" class="lg:max-w-[100%] md:max-w-[60%]  scale-75 md:scale-100   absolute -bottom-10   - -right-40 md:-right-12 h-full " alt="thumbnail">
 
+</section>
+<footer class="w-full flex justify-center items-center py-12 ">
+<p class="text-second font-poppins font-medium text-[13px]">All Rights Reserved. Copyright Vrom 2023.</p>
+</footer>
 </main>
 </x-app-layout>
