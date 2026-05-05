@@ -40,3 +40,32 @@ AOS.init({ once: true, duration: 300,  offset: 0  })
     del.classList.add('hidden')
   })
 }
+
+// Counter animation
+function animateCount(el, target, duration) {
+  let start = 0;
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target) + '+';
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Jalanin pas elemen keliatan di viewport
+const counters = document.querySelectorAll('[data-count]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.dataset.count;
+      const duration = +el.dataset.duration || 2000;
+      animateCount(el, target, duration);
+      observer.unobserve(el); // biar cuma jalan sekali
+    }
+  });
+});
+
+counters.forEach(el => observer.observe(el));

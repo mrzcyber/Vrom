@@ -124,10 +124,43 @@
                  alt="arrow nav">
           </a>
         </div>
+    </div>
+</section>
 
+<section class="w-full justify-center  h-screen bg-bmain flex px-10 md:px-20 ">
+<div class="w-full flex gap-5 flex-col md:flex-row max-w-5xl py-10 ">
+    <div class="flex w-full flex-col ">
+        <h1 class="font-poppins font-semibold text-main/90 md:text-[50px] text-[30px] ">About Vrom</h1>
+        <p class="font-poppins mt-2 font-medium text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aperiam quos. Nemo fuga molestiae, atque dignissimos nesciunt ipsa officia eum harum repellendus quisquam cupiditate provident doloremque laborum quia libero aut inventore vitae aperiam, quod debitis pariatur nulla est? Nobis quo blanditiis quam sequi atque est aperiam excepturi. Quasi, cum quae.
+        </p>
+        <article class="w-full flex flex-row mt-7 md:mt-14 md:scale-100 ">
+            <div class="flex flex-col items-center leading-none pr-5">
+        <p data-count="6000" class="font-semibold font-poppins text-main md:text-[25px]">0+</p>
+        <p class="text-second font-poppins font-normal md:text-[16px] text-[12px] whitespace-nowrap">Happy Costumer</p>
+            </div>
+            <div class="flex flex-col items-center leading-none pr-5">
+        <p data-count="3" class="font-semibold font-poppins text-main md:text-[25px]">0+</p>
+        <p class="text-second font-poppins font-normal md:text-[16px] text-[12px] whitespace-nowrap">Year Experience</p>
+            </div>
+            <div class="flex flex-col items-center leading-none ">
+        <p data-count="20" class="font-semibold font-poppins text-main md:text-[25px]">0+</p>
+        <p class="text-second font-poppins font-normal md:text-[16px] text-[12px] whitespace-nowrap">Number of Vehicles</p>
+            </div>
 
+        </article>
+    </div>
+    <div class="w-full relative h-52 md:h-96 md:mt-10 mt-5 ">
+        <div class=" w-full max-w-2xl rounded-2xl h-52 md:h-96 overflow-hidden">
+            <img src="/img/owncar.jpg" alt="own car photo" class="w-full h-full object-center object-cover">
+            <div class="absolute z-50 -bottom-7 md:-left-10 -left-6 bg-white rounded-2xl py-1 px-3 w-48 shadow-sm shadow-black/50 ">
+                <p class="font-poppins font-semibold text-main">Owner</p>
+                <p class="font-poppins font-medium text-main">Alex Robert Carlos</p>
+            </div>
+        </div>
     </div>
 
+</div>
 </section>
 
 </main>
