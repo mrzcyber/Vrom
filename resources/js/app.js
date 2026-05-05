@@ -16,9 +16,11 @@ AOS.init({ once: true, duration: 300,  offset: 0  })
   const input = document.getElementById('photo')
   const prev = document.getElementById('preview')
   const add = document.getElementById('btn-add')
-  const del =document.getElementById('btn-del')
+  const del = document.getElementById('btn-del')
+const accordions = document.querySelectorAll('.accordion');
 
-  if (input && prev && add && del) {
+
+  if (input && prev && add && del ) {
   input.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
@@ -39,8 +41,26 @@ AOS.init({ once: true, duration: 300,  offset: 0  })
     add.classList.remove('hidden')
     del.classList.add('hidden')
   })
+
 }
 
+accordions.forEach(function(quest) {
+    const arrow = quest.querySelector('img');
+
+    quest.addEventListener('click', function () {
+        const isOpen = quest.classList.contains('is-open');
+
+        if (isOpen) {
+            quest.classList.remove('is-open');
+            quest.style.maxHeight = '40px';
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            quest.classList.add('is-open');
+            quest.style.maxHeight = quest.scrollHeight + 'px';
+            arrow.style.transform = 'rotate(180deg)';
+        }
+    });
+});
 // Counter animation
 function animateCount(el, target, duration) {
   let start = 0;
@@ -54,7 +74,7 @@ function animateCount(el, target, duration) {
   requestAnimationFrame(step);
 }
 
-// Jalanin pas elemen keliatan di viewport
+// running elementt
 const counters = document.querySelectorAll('[data-count]');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -63,7 +83,7 @@ const observer = new IntersectionObserver((entries) => {
       const target = +el.dataset.count;
       const duration = +el.dataset.duration || 2000;
       animateCount(el, target, duration);
-      observer.unobserve(el); // biar cuma jalan sekali
+      observer.unobserve(el); 
     }
   });
 });

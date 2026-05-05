@@ -127,7 +127,7 @@
     </div>
 </section>
 
-<section class="w-full justify-center  h-screen bg-bmain flex px-10 md:px-20 ">
+<section class="w-full justify-center pb-16  bg-bmain flex px-10 md:px-20 ">
 <div class="w-full flex gap-5 flex-col md:flex-row max-w-5xl py-10 ">
     <div class="flex w-full flex-col ">
         <h1 class="font-poppins font-semibold text-main/90 md:text-[50px] text-[30px] ">About Vrom</h1>
@@ -162,6 +162,109 @@
 
 </div>
 </section>
+{{-- qa --}}
+<section class="w-full mt-10 flex flex-col items-center ">
+<h1 class="text-main font-poppins font-bold text-[25px]">Frequently Asked Questions</h1>
+<p class="text-second font-poppins font-normal text-[14px]">learn more about Vrom and get a success</p>
+<div class="flex flex-row justify-center items-center gap-5">
+    <div class="flex flex-col w-full items-start h-[35rem]  mt-10">
+
+<div class="accordion flex flex-col w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+     style="max-height: 40px; transition: max-height 0.5s ease;">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h3 class="text-main font-poppins font-medium">Rental Period</h3>
+        <button>
+            <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
+        </button>
+    </div>
+    <p class="mt-3 font-poppins text-[13px] mb-2">
+        The rental period commences upon the official handover of the vehicle and concludes at the time the vehicle is returned to the Company.
+The minimum rental duration is one (1) day, equivalent to twenty-four (24) hours.
+Any extension of the rental period shall be subject to mutual agreement between the parties.
+    </p>
+</div>
+<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+     style="max-height: 40px; transition: max-height 0.5s ease;">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h3 class="text-main font-poppins font-medium">Renter Requirements</h3>
+        <button>
+            <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
+        </button>
+    </div>
+    <p class="mt-3 font-poppins text-[13px] mb-2">
+        The renter must hold a valid and legally recognized driver’s license.
+The vehicle may not be taken outside the island of Bali without prior written authorization from the Company.
+
+    </p>
+</div>
+<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+     style="max-height: 40px; transition: max-height 0.5s ease;">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h3 class="text-main font-poppins font-medium">Late Return & Vehicle Return</h3>
+        <button>
+            <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
+        </button>
+    </div>
+    <p class="mt-3 font-poppins text-[13px] mb-2">
+        Late returns shall incur a penalty of ten percent (10%) of the daily rental rate per hour of delay.
+The Company shall not be held responsible for any personal belongings left inside the vehicle upon return.
+    </p>
+</div>
+        
+    </div>
+    
+
+    <div class="flex flex-col w-full items-start h-[35rem]  mt-10">
+<div class="accordion flex flex-col w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+     style="max-height: 40px; transition: max-height 0.5s ease;">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h3 class="text-main font-poppins font-medium"> Rental Fees</h3>
+        <button>
+            <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
+        </button>
+    </div>
+    <p class="mt-3 font-poppins text-[13px] mb-2">
+        All rental fees must be paid in full (100%) prior to commencement of the rental period.
+Should the renter cancel the booking, a cancellation charge of fifty percent (50%) of the rental fee shall apply.
+    </p>
+</div>
+<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+     style="max-height: 40px; transition: max-height 0.5s ease;">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h3 class="text-main font-poppins font-medium">General Provisions</h3>
+        <button>
+            <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
+        </button>
+    </div>
+    <p class="mt-3 font-poppins text-[13px] mb-2">
+      This Agreement is provided in both Indonesian and English. In the event of any inconsistency or difference in interpretation, the Indonesian version shall prevail.
+The renter must provide complete and accurate personal identification and full vehicle details as required.
+
+    </p>
+</div>
+<div class="accordion flex flex-col w-72 p-2 mt-5 rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
+     style="max-height: 40px; transition: max-height 0.5s ease;">
+    <div class="flex flex-row justify-between w-full items-center">
+        <h3 class="text-main font-poppins font-medium">Obligations  </h3>
+        <button>
+            <img src="/svgs/ic-chevron-down-rounded.svg" alt="button arrow" class="transition-transform duration-500">
+        </button>
+    </div>
+    <p class="mt-3 font-poppins text-[13px] mb-2">
+        To maintain the vehicle responsibly and refuel using Pertamax Turbo or the fuel grade specified by the Company.
+To settle the full rental payment prior to vehicle handover.
+
+    </p>
+</div>
+        
+    </div>
+
+
+</div>
+
+</section>
+
+
 
 </main>
 </x-app-layout>
