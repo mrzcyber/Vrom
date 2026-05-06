@@ -29,3 +29,16 @@
   font-display: swap;
 }
 
+
+.thumbSwiper .swiper-slide-thumb-active img {
+        opacity: 1;
+        outline: 3px solid #f97316; /* Warna orange porsche */
+        outline-offset: -3px;
+    }
+
+    /* Kustomisasi dots pagination */
+    .mainSwiper .swiper-pagination-bullet-active {
+        background: #4f46e5; /* Warna indigo */
+        width: 20px;
+        border-radius: 5px;
+    }

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DetailController
 {
     public function show(Item $item){
-        $result=$item->load('image','type','brand');
-        return response()->json($result);
+        $data=$item->load('image','type','brand');
+        return view('front.detail',compact('data'));
     }
 }

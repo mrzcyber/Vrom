@@ -22,7 +22,7 @@ Route::get('/detail/{item}',[DetailController::class,'show'])->name('detail');
 Route::middleware([ 'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',])->group(function(){
-        Route::get('checkout/{item}',[CheckoutController::class,'index']);
+        Route::get('checkout/{item}',[CheckoutController::class,'index'])->name('checkout');
         Route::post('checkout/{item}',[CheckoutController::class,'store'])->name('checkout.store');
         Route::get('payment/{id}',[PaymentController::class,'index'])->name('payment');
     });
