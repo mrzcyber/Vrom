@@ -10,13 +10,10 @@ use App\Http\Controllers\Front\LandingController;
 use App\Http\Controllers\Front\PaymentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
 
 
 Route::name('front.')->group(function(){
-Route::get('/a',[LandingController::class,'index'])->name('index');
+Route::get('/',[LandingController::class,'index'])->name('index');
 Route::get('/detail/{item}',[DetailController::class,'show'])->name('detail');
 
 

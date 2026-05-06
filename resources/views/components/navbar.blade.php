@@ -10,7 +10,7 @@
             </li>
         </ul>
     @auth
-    <section x-data="{ open: false }"  class="md:flex hidden flex-row relative items-center gap-2 w-full max-w-44 justify-center ">
+    <section x-data="{ open: false }"  @click.outside="open = false"  class="md:flex hidden flex-row relative items-center gap-2 w-full max-w-44 justify-center ">
         <div class="flex w-full flex-col justify-end">
             <p class="w-full flex justify-end font-poppins font-semibold text-main ">Hello</p>
             <p class="w-full flex justify-end font-poppins font-semibold text-main">{{ auth()->user()->name }}</p>
@@ -28,15 +28,16 @@
             x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 -translate-y-2"
         x-transition:enter-end="opacity-100 translate-y-0"
-        @click.outside="open = false"
         class="absolute flex  list-none gap-1 flex-col justify-start border border-second rounded-xl p-1 pl-2 -bottom-24 right-1 w-full ">
         @if ( auth()->user()->role === 'admin')
             <a href="" class="font-medium font-poppins text-main ">Dashboard</a>
         @endif
         <a href="" class="font-medium font-poppins text-main ">My Transaction</a>
-        <a href="" class="font-medium font-poppins text-main ">Logout</a>
+        <button form="logout-form" type="submit" class="w-full flex justify-start font-medium z-50 cursor-pointer font-poppins text-red-500 hover:text-main/50 transition-all duration-300">Logout</button>
+        
     </li>
 </ul>
+ <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">  @csrf </form>
     </section>
     
     @else
@@ -90,7 +91,10 @@
     <a href="" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Stories</a>
     <a href="" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Contact</a>
     @if(auth()->check())
-        <a href="" class="font-medium font-poppins text-red-500 hover:text-main/50 transition-all duration-300" >Logout</a>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+    <button type="submit" class="font-medium font-poppins cursor-pointer text-red-500 hover:text-main/50 transition-all duration-300" >Logout</button>
+    </form>
         @else
         <a href="" class="font-medium font-poppins text-main underline hover:text-main/50 transition-all duration-300" >Login</a>
     @endif
