@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import { Thumbs, Navigation, Autoplay } from 'swiper/modules';
+import AOS from 'aos'
 
 // Impor Style Swiper (wajib agar tampilan tidak berantakan)
 import 'swiper/css';
@@ -27,4 +28,5 @@ const swiperMain = new Swiper(".mainSwiper", {
         swiper: swiperThumbs,
     },
 });
+AOS.refresh()
 });

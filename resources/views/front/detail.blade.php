@@ -15,35 +15,25 @@
     
     <div class="swiper mainSwiper w-full overflow-hidden rounded-2xl">
         <div class="swiper-wrapper">
+            @foreach ($main->image as $image)
+                
             <div class="swiper-slide">
-                <img src="/img/car-01.webp" class="w-full h-full object-cover" />
+                <img src="{{ asset('storage/'.$image->path) }}" class="w-full h-full object-cover" />
             </div>
-            <div class="swiper-slide">
-                <img src="/img/car-01.webp" class="w-full h-full object-cover" />
-            </div>
-            <div class="swiper-slide">
-                <img src="/img/car-01.webp" class="w-full h-full object-cover" />
-            </div>
-            <div class="swiper-slide">
-                <img src="/img/car-01.webp" class="w-full h-full object-cover" />
-            </div>
+            @endforeach
+
         </div>
     </div>
 
     <div class="swiper thumbSwiper  w-full mt-6">
         <div class="swiper-wrapper flex flex-row ">
+            @foreach ($main->image as $image)
+                
             <div class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent transition-all">
-                <img src="/img/car-01.webp" class="h-20 w-full object-cover">
+                <img src="{{asset('storage/'.$image->path)}}" class="h-20 w-full object-cover">
             </div>
-            <div class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent transition-all">
-                <img src="/img/car-01.webp" class="h-20 w-full object-cover">
-            </div>
-            <div class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent transition-all">
-                <img src="/img/car-01.webp" class="h-20 w-full object-cover">
-            </div>
-            <div class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent transition-all">
-                <img src="/img/car-01.webp" class="h-20 w-full object-cover">
-            </div>
+            @endforeach
+
         </div>
     </div>
 
@@ -51,23 +41,20 @@
 
 
         <div class="bg-white w-full md:w-[220px] lg:scale-110  rounded-xl py-2 px-2">
-            <h1 class="font-poppins font-bold text-main text-[20px] capitalize">Porsche Taychan Mattic</h1>
-            <p class="capitalize font-poppins font-normal text-second text-[13px] ">sport car</p>
-            <div class="flex border-b border-second pb-3 lg:pb-5 flex-row font-semibold font-poppins text-[13px] "><img src="/svgs/Frame 9.svg" alt="start" class="w w-20"> (12,887)</div>
+            <h1 class="font-poppins font-bold text-main text-[20px] capitalize">{{ $main->name }}</h1>
+            <p class="capitalize font-poppins font-normal text-second text-[13px] ">{{ $main->type->name }}</p>
+            <div class="flex border-b border-second pb-3 lg:pb-5 flex-row font-semibold font-poppins text-[13px] "><img src="/svgs/Frame 9.svg" alt="start" class="w w-20"> ({{ $main->review }})</div>
             <div class="md:flex grid grid-cols-2 justify-center md:flex-col ">
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold md:mt-4 mt-1 text-[13px]"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1 lg:mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> 350 Horse Power</div>
-            </div>
-
+                @foreach (explode(',', $main->features) as $fitur)
+                    
+                <div class="flex flex-row text-main gap-2 font-poppins font-semibold md:mt-4 mt-1 text-[13px]"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> {{ trim($fitur) }}</div>
+                
+            
+            @endforeach
+                <div class="border-t border-second mt-2 md:hidden"></div>
             <div class="flex flex-row border-t justify-between border-second lg:mt-4 mt-2 pt-2 lg:pt-4">
                 <div class="flex flex-col" >
-                    <p class="font-semibold text-main text-[13px] leading-none">Rp1.000.000</p>
+                    <p class="font-semibold text-main text-[13px] leading-none">{{ number_format($main->price,0,'.',',') }}</p>
                     <p class="font-normal text-second text-[12px]">/day</p>
                 </div>
                   <div class="p-1 shadow-lg scale-90 hover:shadow-indigo-700 sm:mb-3 mb-0 shadow-indigo-500 rounded-full w-24  bg-primary group">
