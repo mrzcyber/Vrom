@@ -48,13 +48,13 @@
         </div>
 </article>
 
-<section class="w-full py-5 md:py-10 mt-5 md:mt-20 flex bg-bmain flex-col px-5 md:px-16 lg:px-20 ">
+<section id="catalog" class="w-full py-5 md:py-10 mt-5 md:mt-20 flex bg-bmain flex-col px-5 md:px-16 lg:px-20 ">
 <h2 class="text-main font-bold font-poppins text-[20px] md:text-[25px]">Popular Cars</h2>
 <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
-    @foreach ($data as $item)
+    @foreach ($data as $index=>$item)
         
-    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-48 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
+    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="{{ $index * 300 }}" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-48 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold text-[20px] uppercase">{{ $item->name }}</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
         <div class="w-full overflow-hidden  rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
@@ -69,7 +69,7 @@
 </div>
 </section>
 
-<section class="w-full mt-10 flex flex-row justify-between  mb-10 px-2  md:px-20">
+<section id="benefit" class="w-full mt-10 flex flex-row justify-between  mb-10 px-2  md:px-20">
         <div  data-aos="fade-right" data-aos-offset="100" data-aos-duration="1000" class="overflow-hidden w-full ">
             <img src="/img/illustration-01.webp" alt="benefit photo" class="w-full object-cover object-center ">
     </div>
@@ -122,9 +122,9 @@
     </div>
 </section>
 
-<section class="w-full justify-center pb-16  bg-bmain flex px-10 md:px-20 ">
+<section id="stori" class="w-full justify-center pb-16  bg-bmain flex px-10 md:px-20 ">
 <div class="w-full flex gap-5 flex-col md:flex-row max-w-5xl py-10 ">
-    <div class="flex w-full flex-col ">
+    <div data-aos="fade-right" data-aos-duration="1000" class="flex w-full flex-col ">
         <h1 class="font-poppins font-semibold text-main/90 md:text-[50px] text-[30px] ">About Vrom</h1>
         <p class="font-poppins mt-2 font-medium text-gray-600">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aperiam quos. Nemo fuga molestiae, atque dignissimos nesciunt ipsa officia eum harum repellendus quisquam cupiditate provident doloremque laborum quia libero aut inventore vitae aperiam, quod debitis pariatur nulla est? Nobis quo blanditiis quam sequi atque est aperiam excepturi. Quasi, cum quae.
@@ -145,7 +145,7 @@
 
         </article>
     </div>
-    <div class="w-full relative h-52 md:h-96 md:mt-10 mt-5 ">
+    <div data-aos="fade-left" data-aos-duration="1000" class="w-full relative h-52 md:h-96 md:mt-10 mt-5 ">
         <div class=" w-full max-w-2xl rounded-2xl h-52 md:h-96 overflow-hidden">
             <img src="/img/owncar.jpg" alt="own car photo" class="w-full h-full object-center object-cover">
             <div class="absolute z-50 -bottom-7 md:-left-10 -left-6 bg-white rounded-2xl py-1 px-3 w-48 shadow-sm shadow-black/50 ">
@@ -260,7 +260,7 @@ To settle the full rental payment prior to vehicle handover.
 </section>
 
 <section class="w-full flex flex-row relative bg-main px-8 md:px-16  lg:px-32 ">
-<div  class="flex w-full  flex-col py-10 ">
+<div data-aos="fade-right" data-aos-duration="1000" class="flex w-full  flex-col py-10 ">
     <h2 class="font-poppins font-bold text-white text-[20px] md:text-[25px] text-shadow-lg text-shadow-white">Drive Yours Today.</h2>
     <h2 class="font-poppins font-bold text-white text-[20px] md:text-[25px] text-shadow-lg text-shadow-white">Drive Faster.</h2>
 <p class="text-second font-poppins font-normal text-[13px] ">Get an instant booking to catch up wheatever</p>
@@ -279,7 +279,7 @@ To settle the full rental payment prior to vehicle handover.
     <img src="/img/porsche.webp" class="lg:max-w-[100%] md:max-w-[60%] hidden md:flex scale-75 md:scale-100   absolute -bottom-10   -right-40 md:-right-12 h-full " alt="thumbnail">
 
 </section>
-<footer class="w-full flex justify-center items-center py-12 ">
+<footer id="kontak" class="w-full flex justify-center items-center py-12 ">
 <p class="text-second font-poppins font-medium text-[13px]">All Rights Reserved. Copyright Vrom 2023.</p>
 </footer>
 </main>

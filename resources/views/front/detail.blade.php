@@ -45,19 +45,18 @@
             <p class="capitalize font-poppins font-normal text-second text-[13px] ">{{ $main->type->name }}</p>
             <div class="flex border-b border-second pb-3 lg:pb-5 flex-row font-semibold font-poppins text-[13px] "><img src="/svgs/Frame 9.svg" alt="start" class="w w-20"> ({{ $main->review }})</div>
             <div class="md:flex grid grid-cols-2 justify-center md:flex-col ">
-                @foreach (explode(',', $main->features) as $fitur)
+                @foreach (explode(',', $main->features) as $index=>$fitur)
                     
-                <div class="flex flex-row text-main gap-2 font-poppins font-semibold md:mt-4 mt-1 text-[13px]"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> {{ trim($fitur) }}</div>
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $index * 100 }}" class="flex flex-row text-main gap-2 font-poppins font-semibold md:mt-4 mt-1 text-[13px]"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> {{ trim($fitur) }}</div>
                 
-            
             @endforeach
                 <div class="border-t border-second mt-2 md:hidden"></div>
-            <div class="flex flex-row border-t justify-between border-second lg:mt-4 mt-2 pt-2 lg:pt-4">
+            <div  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex flex-row border-t justify-between border-second lg:mt-4 mt-2 pt-2 lg:pt-4">
                 <div class="flex flex-col" >
                     <p class="font-semibold text-main text-[13px] leading-none">{{ number_format($main->price,0,'.',',') }}</p>
                     <p class="font-normal text-second text-[12px]">/day</p>
                 </div>
-                  <div class="p-1 shadow-lg scale-90 hover:shadow-indigo-700 sm:mb-3 mb-0 shadow-indigo-500 rounded-full w-24  bg-primary group">
+                  <div  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="p-1 shadow-lg scale-90 hover:shadow-indigo-700 sm:mb-3 mb-0 shadow-indigo-500 rounded-full w-24  bg-primary group">
           <a href="#popularCars" class="  w-full flex flex-row  items-center text-white font-bold text-[13px] border border-transparent transition-all duration-300 group-hover:border-white rounded-full  px">
             <p class="transition-all duration-[320ms] translate-x-2 group-hover:translate-x-1">
               Rent Now

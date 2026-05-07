@@ -10,6 +10,9 @@
 [x-cloak] {
     display: none;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 @layer utilities {
   .no-spinner::-webkit-inner-spin-button,

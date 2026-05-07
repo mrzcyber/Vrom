@@ -3,10 +3,10 @@
         <ul class="w-full hidden md:flex justify-center items-center ">
             <li class="list-none  w-full max-w-xl flex justify-between items-center">
                 <a href="/" class="font-poppins text-second font-normal hover:text-main transition-all duration-300 ">Home</a>
-                <a href="" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Catalog</a>
-                <a href="" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Benefits</a>
-                <a href="" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Stories</a>
-                <a href="" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Contact</a>
+                <a href="/#catalog" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Catalog</a>
+                <a href="/#benefit" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Benefits</a>
+                <a href="/#stori" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Stories</a>
+                <a href="/#kontak" class="font-poppins text-second font-normal hover:text-main transition-all duration-300">Contact</a>
             </li>
         </ul>
     @auth
@@ -32,7 +32,7 @@
         @if ( auth()->user()->role === 'admin')
             <a href="" class="font-medium font-poppins text-main ">Dashboard</a>
         @endif
-        <a href="" class="font-medium font-poppins text-main ">My Transaction</a>
+        <a href="{{ route('front.profil') }}" class="font-medium font-poppins text-main ">My Transaction</a>
         <button form="logout-form" type="submit" class="w-full flex justify-start font-medium z-50 cursor-pointer font-poppins text-red-500 hover:text-main/50 transition-all duration-300">Logout</button>
         
     </li>
@@ -69,12 +69,15 @@
         class=" bg-slate-200 md:bg-transparent fixed top-1 right-1  w-52  border border-second rounded-lg p-3 px-5">
         <li class="list-none  w-full max-w-xl flex flex-col gap-3 justify-between  items-start">
                 @auth
-                <div class="w-full flex flex-row gap-2 ">
-                    <div class="flex w-full flex-col justify-end">
-                        <p class="w-full flex justify-end font-poppins font-semibold text-main ">Hello</p>
-                        <p class="w-full flex justify-end font-poppins font-semibold text-main">{{ auth()->user()->name }}</p>
-                    </div>
-                    <button class="border p-0.5 r rounded-full border-second hover:scale-105 transition-all w-20 h-13 overflow-hidden duration-300">
+                <div 
+                class="w-full flex flex-row gap-2 ">
+                <div class="flex w-full flex-col justify-end">
+                    <p class="w-full flex justify-end font-poppins font-semibold text-main ">Hello</p>
+                    <p class="w-full flex justify-end font-poppins font-semibold text-main">{{ auth()->user()->name }}</p>
+                </div>
+                <button 
+                @click="open = !open"
+                    class="border p-0.5 r rounded-full border-second hover:scale-105 transition-all w-20 h-13 overflow-hidden duration-300">
                         @if (auth()->user()->profile_photo_path)
                         <img src="{{ Storage::url(auth()->user()->profile_photo_path) }}" alt="profile picture" class="rounded-full w-full h-full  object-cover object-center ">
                         @else
@@ -83,13 +86,13 @@
                     </button>
                 </div>
                 
-    <a href="/" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300 mt-5 ">My Transaction</a>
+    <a href="{{ route('front.profil') }}" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300 mt-5 ">My Transaction</a>
                 @endauth
     <a href="/" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300 ">Home</a>
-    <a href="" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Catalog</a>
-    <a href="" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Benefits</a>
-    <a href="" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Stories</a>
-    <a href="" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Contact</a>
+    <a href="/#catalog" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Catalog</a>
+    <a href="/#benefit" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Benefits</a>
+    <a href="/#stori" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Stories</a>
+    <a href="/#kontak" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Contact</a>
     @if(auth()->check())
     <form action="{{ route('logout') }}" method="POST">
         @csrf

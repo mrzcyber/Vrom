@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\DetailController;
 use App\Http\Controllers\Front\LandingController;
 use App\Http\Controllers\Front\PaymentController;
+use App\Http\Controllers\Front\Profilcontroller;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +26,7 @@ Route::middleware([ 'auth:sanctum',
         Route::get('checkout/{item}',[CheckoutController::class,'index'])->name('checkout');
         Route::post('checkout/{item}',[CheckoutController::class,'store'])->name('checkout.store');
         Route::get('payment/{id}',[PaymentController::class,'index'])->name('payment');
+        Route::get('profil',[Profilcontroller::class,'index'])->name('profil');
     });
 });
 
