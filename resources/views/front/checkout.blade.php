@@ -1,6 +1,6 @@
 <x-app-layout>
   <!-- Main Content -->
-  <section class="bg-darkGrey w-full  flex justify-center  items-center   py-[70px]">
+  <section class="bg-darkGrey w-full bg-bmain flex justify-center  items-center   py-[70px]">
     <div class="container justify-center w-full  flex flex-col  items-center lg:block ">
       <header class="mb-[30px]">
         <h2 class="font-bold font-poppins text-dark text-[26px] mb-1">

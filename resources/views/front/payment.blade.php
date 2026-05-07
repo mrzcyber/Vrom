@@ -1,5 +1,5 @@
 <x-app-layout>
-<main class="w-full min-h-screen flex flex-row  justify-between  ">
+<main class="w-full min-h-screen flex flex-row  bg-bmain justify-between  ">
     <article class="flex w-full flex-col items-center justify-center px-5  lg:pl-16">
             <header class="mb-[30px] flex flex-col max-w-[490px] w-full ">
         <h1 class="font-bold font-poppins text-dark text-[26px] mb-1">

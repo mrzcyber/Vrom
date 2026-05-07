@@ -10,8 +10,8 @@
         </li>
     </ul>
 
-    <section class="w-full flex flex-row mt-10 md:px-12 lg:px-20 gap-4 ">
-        <div class="flex flex-col bg-white w-[490px] p-2 rounded-2xl">
+    <section class="w-full flex flex-row mt-10 md:px-12 justify-center lg:px-20 gap-8 lg:gap-16 ">
+        <div class="flex flex-col bg-white w-[550px] lg:scale-110 p-2 rounded-2xl">
             <div class=" w-full ">
                 <div class="w-full overflow-hidden rounded-2xl">
                     <img src="/img/car-01.webp" alt="detail product " class="w-full h-full object-cover object-center ">
@@ -28,19 +28,19 @@
         </div>
 
 
-        <div class="bg-white w-[220px] h-96 rounded-xl py-2 px-2">
+        <div class="bg-white w-[220px] lg:scale-110  rounded-xl py-2 px-2">
             <h1 class="font-poppins font-bold text-main text-[20px] capitalize">Porsche Taychan Mattic</h1>
             <p class="capitalize font-poppins font-normal text-second text-[13px] ">sport car</p>
-            <div class="flex border-b border-second pb-3 flex-row font-semibold font-poppins text-[13px] "><img src="/svgs/Frame 9.svg" alt="start" class="w w-20"> (12,887)</div>
+            <div class="flex border-b border-second pb-3 lg:pb-5 flex-row font-semibold font-poppins text-[13px] "><img src="/svgs/Frame 9.svg" alt="start" class="w w-20"> (12,887)</div>
             <div class="flex flex-row text-main gap-2 font-poppins font-semibold mt-4 text-[13px]"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-1"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
-            <div class="flex flex-row border-t justify-between border-second mt-4 pt-2">
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row text-main gap-2 font-poppins font-semibold text-[13px] mt-2"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4"> 350 Horse Power</div>
+            <div class="flex flex-row border-t justify-between border-second lg:mt-4 mt-2 pt-2 lg:pt-4">
                 <div class="flex flex-col" >
                     <p class="font-semibold text-main text-[13px] leading-none">Rp1.000.000</p>
                     <p class="font-normal text-second text-[12px]">/day</p>
@@ -182,6 +182,33 @@ To settle the full rental payment prior to vehicle handover.
 
 </div>
 </section>
+
+<section class="w-full flex flex-row relative bg-main px-8 md:px-16 lg:px-32 ">
+<div data-aos="fade-right"  data-aos-offset="100" data-aos-duration="1000" class="flex w-full flex-col py-10 ">
+    <h2 class="font-poppins font-bold text-white text-[20px] md:text-[25px] text-shadow-lg text-shadow-white">Drive Yours Today.</h2>
+    <h2 class="font-poppins font-bold text-white text-[20px] md:text-[25px] text-shadow-lg text-shadow-white">Drive Faster.</h2>
+<p class="text-second font-poppins font-normal text-[13px] ">Get an instant booking to catch up wheatever</p>
+<p class="text-second font-poppins font-normal text-[13px] ">you really want to achieve today. yes</p>
+  <div class="p-1 mt-7 mb-2 shadow-lg hover:shadow-indigo-700 shadow-indigo-500 rounded-full w-44 bg-primary group">
+          <a href="#popularCars" class=" w w-[167px] flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1 px-2">
+            <p class="transition-all duration-[320ms] translate-x-8 group-hover:translate-x-1">
+              Rent Now
+            </p>
+            <img src="/svgs/ic-arrow-right.svg"
+                 class="opacity-0 group-hover:opacity-100 group-hover:translate-x-8 transition-all duration-[320ms]"
+                 alt="arrow nav">
+          </a>
+        </div>
+</div>
+<div class="w-full">
+
+</div>
+    <img src="/img/porsche.webp" class="lg:max-w-[100%] md:max-w-[60%]  scale-75 md:scale-100   absolute -bottom-10   - -right-40 md:-right-12 h-full " alt="thumbnail">
+
+</section>
+<footer class="w-full flex justify-center items-center py-12 ">
+<p class="text-second font-poppins font-medium text-[13px]">All Rights Reserved. Copyright Vrom 2023.</p>
+</footer>
 
 </main>
 @push('script')

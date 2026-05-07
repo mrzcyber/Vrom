@@ -19,7 +19,7 @@
             class="w-full">
     </div>
 </section>
-<article class="flex flex-row items-center justify-center md:mt-12  w-full scale-50 md:scale-100">
+<article class="flex flex-row items-center justify-center md:mt-16  w-full scale-50 md:scale-100">
     <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex font-poppins flex-col border-r items-center border-second/75 pr-12">
         <h2 class="font-bold text-main text-[30px]/7">380</h2>
         <p class="text-second font-light ">Horse Power</p>
@@ -48,7 +48,7 @@
         </div>
 </article>
 
-<section class="w-full py-5 md:py-10 mt-5 md:mt-16 flex bg-bmain flex-col px-5 md:px-16 lg:px-20 ">
+<section class="w-full py-5 md:py-10 mt-5 md:mt-20 flex bg-bmain flex-col px-5 md:px-16 lg:px-20 ">
 <h2 class="text-main font-bold font-poppins text-[20px] md:text-[25px]">Popular Cars</h2>
 <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
