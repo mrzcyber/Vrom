@@ -1,25 +1,30 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Thumbs, Autoplay } from 'swiper/modules';
+import { Thumbs, Navigation, Autoplay } from 'swiper/modules';
+
+// Impor Style Swiper (wajib agar tampilan tidak berantakan)
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 import 'swiper/css/thumbs';
+import 'swiper/css/navigation';
 
 document.addEventListener('DOMContentLoaded', function () {
-  var thumbSwiper = new Swiper(".mySwiper", {
-    spaceBetween: 12,
+const swiperThumbs = new Swiper(".thumbSwiper", {
+    modules: [Thumbs], // Daftarkan modul di sini
+    spaceBetween: 10,
     slidesPerView: 4,
     freeMode: true,
     watchSlidesProgress: true,
-  });
+});
 
-  var mainSwiper = new Swiper(".mySwiper2", {
+const swiperMain = new Swiper(".mainSwiper", {
+    modules: [Thumbs, Navigation,Autoplay],
     spaceBetween: 10,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
+        autoplay: {
+        delay: 3000, // Gambar berpindah setiap 3 detik
+        disableOnInteraction: false, // Tetap autoplay meskipun user mengklik/swipe manual
     },
     thumbs: {
-      swiper: thumbSwiper,
+        swiper: swiperThumbs,
     },
-  });
+});
 });
