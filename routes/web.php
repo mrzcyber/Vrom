@@ -11,9 +11,6 @@ use App\Http\Controllers\Front\PaymentController;
 use App\Http\Controllers\Front\Profilcontroller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/tes',function(){
-return view('front.succes');
-});
 
 Route::name('front.')->group(function(){
 Route::get('/',[LandingController::class,'index'])->name('index');
@@ -28,6 +25,7 @@ Route::middleware([ 'auth:sanctum',
         Route::get('checkout/{item}',[CheckoutController::class,'index'])->name('checkout');
         Route::post('checkout/{item}',[CheckoutController::class,'store'])->name('checkout.store');
         Route::get('payment/{id}',[PaymentController::class,'index'])->name('payment');
+        Route::get('payment-success',[PaymentController::class,'success'])->name('payment.success');
         Route::delete('payment/{id}',[PaymentController::class,'delete'])->name('payment.delete');
         Route::get('profil',[Profilcontroller::class,'index'])->name('profil');
     });
