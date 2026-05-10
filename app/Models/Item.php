@@ -12,6 +12,7 @@ use App\Models\Type;
 use App\Models\Image;
 use App\Models\Booking;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Item extends Model
 {
@@ -49,6 +50,11 @@ class Item extends Model
         return $this->hasMany(Booking::class);
     }
 
+    public function thumbnail():HasOne
+    {
+        return $this->hasOne(Image::class);
+    }
+    
 
       // slug
     public function getRouteKeyName():string

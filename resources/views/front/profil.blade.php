@@ -4,12 +4,14 @@
 <p class="text-second font-poppins font-normal text-[15px]">Your personal rental history</p>
 
 <section class="w-full flex flex-col mt-3 gap-4">
-<div class="bg-white flex relative  flex-row p-2 rounded-xl w-full md:max-w-[1000px]"> 
-<div class="  w-60 overflow-hidden rounded-lg hidden md:block"><img src="/img/car-01.webp" alt="thumbnail" class="w-full object-cover object-center"></div>
-<div class="flex flex-row w-full md:justify-between">
+    @foreach ($data as $data)
+        
+    <div class="bg-white flex relative  flex-row p-2 rounded-xl w-full md:max-w-[1000px]"> 
+        <div class="  w-60 overflow-hidden rounded-lg hidden md:block"><img src="{{ asset('storage/'.$data->item->thumbnail->path) }}" alt="thumbnail" class="w-full object-cover object-center"></div>
+        <div class="flex flex-row w-full md:justify-between">
     <div class="md:ml-3">
-        <h3 class="font-semibold text-main font-poppins leading-none">Porsche 911 Turbo S</h3>
-        <p class="font-poppins font-medium text-second text-[12px]  ">#BK-2041 · CAR-001</p>
+        <h3 class="font-semibold text-main font-poppins leading-none capitalize">{{ $data->item->name }}</h3>
+        <p class="font-poppins font-medium text-second text-[12px]  ">{{ $data->order_id }} · CAR-00{{ $data->item->id }}</p>
         <div class="flex flex-row mt-3 gap-3 ">
             <div class="flex flex-col">
                 <p class="flex flex-row font-poppins font-normal text-second text-[12px] gap-1">
@@ -18,16 +20,16 @@
                     </svg>
                     Check-In
                 </p>
-                <p class="font-poppins text-main/80 font-semibold text-[14px] -mt-1 loading-none">21-08-2006</p>
+                <p class="font-poppins text-main/80 font-semibold text-[14px] -mt-1 loading-none">{{ $data->start_date->format('d-m-Y') }}</p>
             </div>
             <div class="flex flex-col">
                 <p class="flex flex-row font-poppins font-normal text-second text-[12px] gap-1">
                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
                         </svg>
-                    Check-Out
+                        Check-Out
                 </p>
-                <p class="font-poppins text-main/80 font-semibold text-[14px] -mt-1 loading-none">24-08-2006</p>
+                <p class="font-poppins text-main/80 font-semibold text-[14px] -mt-1 loading-none">{{ $data->start_date->format('d-m-Y') }}</p>
             </div>
             <div class="flex flex-col">
                 <p class="flex flex-row font-poppins font-normal text-second text-[12px] gap-1">
@@ -37,30 +39,43 @@
                 </svg>
                     Location
                 </p>
-                <p class="font-poppins text-main/80 font-semibold text-[14px] -mt-1 loading-none flex flex-row gap-1">Bandung <span class="text-second font-medium text-[13px] mt-0.5 ">50132</span></p>
+                <p class="font-poppins text-main/80 font-semibold text-[14px] -mt-1 loading-none flex flex-row gap-1 capitalize">{{ $data->city }} <span class="text-second font-medium text-[13px] mt-0.5 ">{{ $data->zip }}</span></p>
             </div>      
             
         </div>
+        
         <button type="button" class=" shadow-primary rounded-full flex justify-center items-center py-1 w-36  bg-primary hover:bg-indigo-700 shadow-md ">
                 <p class="text-white font-poppins font-semibold text-[11px]  ">Complete Payment</p>
-        </button>
-    </div>
-
-
-    <div class="flex flex-col items-end justify-between pb-2 md:pb-0 absolute right-2 top-1 md:top-0 h-full md:relative">
-        <div class="flex items-end flex-col">
-            <p class="text-main font-bold text-[13px] md:text-[20px] ">Rp10.000.000</p>
-            <div class="bg-primary/50 rounded-full w-14 flex justify-center items-center ">
-                <p class="text-primary font-poppins font-medium   text-[12px]">3 days</p>
-            </div>
+            </button>
         </div>
-
+        
+        
+        <div class="flex flex-col items-end justify-between pb-2 md:pb-0 absolute right-2 top-1 md:top-0 h-full md:relative">
+            <div class="flex items-end flex-col">
+                <p class="text-main font-bold text-[13px] md:text-[20px] ">Rp{{ number_format($data->total_price,0,',','.') }}</p>
+                <div class="bg-primary/50 rounded-full w-14 flex justify-center items-center ">
+                    <p class="text-primary font-poppins font-medium   text-[12px]">{{ $data->total_day }} days</p>
+                </div>
+        </div>
+        @if ($data->payment_status == 'success')
         <div class=" px-4 py-1 rounded-full bg-green-200 ">
             <p class="text-green-700 font-poppins font-medium text-[13px]">Succes</p>
         </div>
+        
+        @elseif($data->payment_status == 'pending')
+             <div class=" px-4 py-1 rounded-full bg-gray-400 ">
+            <p class="text-gray-700 font-poppins font-medium text-[13px]">Pending</p>
+        </div>
+
+        @else
+            <div class=" px-4 py-1 rounded-full bg-red-400 ">
+            <p class="text-red-700 font-poppins font-medium text-[13px]">Failed</p>
+        </div>
+        @endif
     </div>
 </div>
 </div>
+@endforeach
 </section>
 
 </main>

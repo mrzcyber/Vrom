@@ -33,9 +33,17 @@ class PaymentController
     
     try {
         $notif = new Notification();
+        $status = $notif->transaction_status;
+        if ($status == 'settlement') {
+            $status = 'success';
+        } elseif ($status == 'pending') {
+            $status = 'pending';
+        } elseif ($status == 'deny' || $status == 'cancel' || $status == 'expire') {
+            $status = 'failed';
+        }
         Booking::where('order_id',$notif->order_id)->update([
             'payment_type'=>$notif->payment_type,
-            'payment_status'=>$notif->transaction_status,
+            'payment_status'=>$status,
             'bank' => $notif->va_numbers[0]->bank
 
         ]);
