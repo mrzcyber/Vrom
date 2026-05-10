@@ -44,10 +44,20 @@
             
         </div>
         
-        <button type="button" class=" shadow-primary rounded-full flex justify-center items-center py-1 w-36  bg-primary hover:bg-indigo-700 shadow-md ">
-                <p class="text-white font-poppins font-semibold text-[11px]  ">Complete Payment</p>
-            </button>
-        </div>
+        @if ( $data->payment_status == 'pending')
+        <a href="{{ route('front.payment',$data->id) }}" type="button" class=" shadow-primary rounded-full flex justify-center items-center py-1 w-36  bg-primary hover:bg-indigo-700 shadow-md ">
+            <p class="text-white font-poppins font-semibold text-[11px]  ">Complete Payment</p>
+        </a>
+        
+        @else
+        <button  type="button" class=" shadow-gray-400 rounded-full flex justify-center items-center py-1 w-36  bg-gray-400  shadow-md ">
+            <p class="text-white font-poppins font-semibold text-[11px] uppercase flex flex-row justify-center gap-0.5 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+</svg>
+{{ $data->bank }}</p>
+</button>
+        @endif
+    </div>
         
         
         <div class="flex flex-col items-end justify-between pb-2 md:pb-0 absolute right-2 top-1 md:top-0 h-full md:relative">
