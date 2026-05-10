@@ -23,10 +23,28 @@ class CheckoutController
     }
 
     public function index(Item $item){
-        $data = $item->slug;
-        return view('front.checkout',[
-            'slug'=>$data
-        ]);
+        $slug = $item->slug;
+
+$bookedDates = Booking::where('item_id', $item->id)
+    ->whereNotNull('payment_type') 
+    ->where('end_date', '>=', today()) 
+    ->get()
+    ->flatMap(function ($booking) {
+        $dates = [];
+        $current = \Carbon\Carbon::parse($booking->start_date);
+        $end = \Carbon\Carbon::parse($booking->end_date);
+        
+        while ($current->lte($end)) {
+            $dates[] = $current->format('Y-m-d');
+            $current->addDay();
+        }
+        return $dates;
+    })
+    ->unique()
+    ->values()
+    ->toArray();
+
+        return view('front.checkout',compact('slug', 'bookedDates'));
     }
 
     public function store(CheckoutRequest $request, Item $item){
@@ -34,23 +52,25 @@ class CheckoutController
          
          $input['type']= $type = $item->name;
          $input['price'] = $price = $item->price;
-         $startDate = Carbon::createFromFormat('d/m/Y', str_replace(' ', '/', $request->start_date));
-         $endDate = Carbon::createFromFormat('d/m/Y', str_replace(' ', '/', $request->end_date));
-         $input['end_date'] = $endDate->format('Y-m-d');
-         $input['start_date'] = $startDate->format('Y-m-d');
-         $input['total_day'] = $day = $startDate->diffInDays($endDate);
+        $startDate = Carbon::parse($request->start_date);
+        $endDate = Carbon::parse($request->end_date);
+        
+        $input['start_date'] = $request->start_date;
+        $input['end_date'] = $request->end_date;
+        $day =  $startDate->diffInDays($endDate);
+        $input['total_day'] = $day;
 
         if($day == 0 ){
         $input['total_day'] = $day = 1;
         };
 
-        $input['total_price'] = $total = $day * $price * 1.1;
+        $input['total_price'] = $total = (int) round($day * $price * 1.1);
         $input['item_id'] = $item->id;
         $input['user_id'] = Auth::user()->id;
         $boking = Booking::create($input);
 
 
-        $orderId = 'VR-' . str_pad($boking->id,6,'0', STR_PAD_LEFT);
+        $orderId = 'VR-' . str_pad($boking->id,5,'0', STR_PAD_LEFT);
 
         $params =[
             'transaction_details' =>[

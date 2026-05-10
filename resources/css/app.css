@@ -8,7 +8,7 @@
 @tailwind utilities;
 
 [x-cloak] {
-    display: none;
+    display: none !important;
 }
 html{
   scroll-behavior: smooth;
