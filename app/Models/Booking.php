@@ -23,7 +23,7 @@ class Booking extends Model
         'zip',
         'payment_type',
         'payment_status',
-        'payment_url',
+        'bank',
         'total_price',
         'item_id',
         'user_id',

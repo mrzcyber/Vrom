@@ -57,6 +57,14 @@ class CheckoutController
                 'order_id' => $orderId,
                 'gross_amount' => $boking->total_price,
             ],
+            'enabled_payments' => [
+            'bca_va', 
+            'bni_va', 
+            'bri_va', 
+            'mandiri_bill', 
+            'permata_va',
+            'other_va'
+        ],
             'costumer_details' =>[
                 'first_name'=> $boking->user->name,
                 'email' => $boking->user->email,
