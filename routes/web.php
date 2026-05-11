@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Front\CatalogController;
 use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\DetailController;
 use App\Http\Controllers\Front\LandingController;
@@ -12,12 +13,12 @@ use App\Http\Controllers\Front\Profilcontroller;
 use Illuminate\Support\Facades\Route;
 
 
+
 Route::name('front.')->group(function(){
 Route::get('/',[LandingController::class,'index'])->name('index');
 Route::get('/detail/{item}',[DetailController::class,'show'])->name('detail');
-
-
-
+Route::get('catalog',[CatalogController::class,'index'])->name('catalog');
+Route::get('catalog/{brand}',[CatalogController::class,'show'])->name('catalog.brand');
 
 Route::middleware([ 'auth:sanctum',
     config('jetstream.auth_session'),
