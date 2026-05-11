@@ -1,7 +1,7 @@
 <x-app-layout>
-<main class="w-full mt-10 overflow-hidden flex flex-col justify-center items-center">
-<section  class="w-full flex justify-center items-center relative">
-    <h1 class=" uppercase font-poppins font-extrabold text-bmain text-[90px] md:text-[180px] lg:text-[220px] flex flex-col leading-tight lg:leading-none ">
+<main class="w-full mt-10 overflow-hidden flex flex-col  justify-center items-center">
+<section  class="w-full flex justify-center items-center  relative">
+    <h1 class=" uppercase font-poppins font-extrabold text-bmain text-[80px] md:text-[170px] lg:text-[220px] flex flex-col leading-tight lg:leading-none ">
         <p data-aos="fade-right" data-aos-duration="1000">
             New
         </p>
@@ -20,19 +20,19 @@
     </div>
 </section>
 <article class="flex flex-row items-center justify-center md:mt-16  w-full scale-50 md:scale-100">
-    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex font-poppins flex-col border-r items-center border-second/75 pr-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex font-poppins flex-col border-r items-center border-second/75 pr-10 lg:pr-12">
         <h2 class="font-bold text-main text-[30px]/7">380</h2>
         <p class="text-second font-light ">Horse Power</p>
     </div>
-    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1300" class="flex font-poppins flex-col border-r items-center border-second/75 px-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1300" class="flex font-poppins flex-col border-r items-center border-second/75 px-10 lg:px-12">
         <h2 class="font-bold text-main text-[30px]/7">12S</h2>
         <p class="text-second font-light ">Speed AT</p>
     </div>
-    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1600" class="flex font-poppins flex-col border-r  items-center border-second/75 px-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1600" class="flex font-poppins flex-col border-r  items-center border-second/75 px-10 lg:px-12">
         <h2 class="font-bold text-main text-[30px]/7">AWD</h2>
         <p class="text-second font-light ">Drive</p>
     </div>
-    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1900" class="flex font-poppins flex-col  items-center  px-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1900" class="flex font-poppins flex-col  items-center  px-10 lg:px-12">
         <h2 class="font-bold text-main text-[30px]/7">A.I</h2>
         <p class="text-second font-light ">Tracking</p>
     </div>
@@ -54,7 +54,7 @@
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
     @foreach ($data as $index=>$item)
         
-    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="{{ $index * 300 }}" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-48 md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
+    <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="{{ $index * 300 }}" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-44 md:w-56 lg:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold text-[20px] uppercase">{{ $item->name }}</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
         <div class="w-full overflow-hidden  rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
@@ -140,7 +140,7 @@
             </div>
             <div class="flex flex-col items-center leading-none ">
         <p data-count="20" class="font-semibold font-poppins text-main md:text-[25px]">0+</p>
-        <p class="text-second font-poppins font-normal md:text-[16px] text-[12px] whitespace-nowrap">Number of Vehicles</p>
+        <p class="text-second font-poppins font-normal md:text-[16px] text-[12px] whitespace-nowrap">vehicle available</p>
             </div>
 
         </article>
@@ -161,7 +161,7 @@
 <section class="w-full mt-10 flex flex-col items-center pb-32">
 <h1 class="text-main font-poppins font-bold text-[25px]">Frequently Asked Questions</h1>
 <p class="text-second font-poppins font-normal text-[14px]">learn more about Vrom and get a success</p>
-<div class="flex flex-row justify-center items-center gap-5">
+<div class="flex flex-row justify-center items-center  scale-95 md:scale-100 gap-2 md:gap-5">
     <div class="flex flex-col w-full items-start  mt-10">
 
 <div class="accordion flex flex-col w-48 md:w-72 p-2  rounded-3xl border border-second shadow-sm overflow-hidden cursor-pointer"
@@ -279,8 +279,8 @@ To settle the full rental payment prior to vehicle handover.
     <img src="/img/porsche.webp" class="lg:max-w-[100%] md:max-w-[60%] hidden md:flex scale-75 md:scale-100   absolute -bottom-10   -right-40 md:-right-12 h-full " alt="thumbnail">
 
 </section>
-<footer id="kontak" class="w-full flex justify-center items-center py-12 ">
-<p class="text-second font-poppins font-medium text-[13px]">All Rights Reserved. Copyright Vrom 2023.</p>
+<footer id="kontak" class="w-full flex justify-center flex-col items-center py-12 ">
+<p class="text-second font-poppins font-medium text-[13px]">All Rights Reserved. Copyright Vrom 2026.</p>
 </footer>
 </main>
 </x-app-layout>
