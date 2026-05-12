@@ -14,11 +14,5 @@ class CatalogController
         return view('front.catalog',compact('data'));
     }
 
-    public function show (Brand $brand){
-        
-         $data= Item::where('brand_id',$brand->id)->with('type','thumbnail')->get();
 
-         return view('front.catalog',compact('data'));
-
-    }
 }
