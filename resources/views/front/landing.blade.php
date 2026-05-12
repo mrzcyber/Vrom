@@ -37,7 +37,7 @@
         <p class="text-second font-light ">Tracking</p>
     </div>
   <div class="p-1 ml-10 mb-2 shadow-lg hover:shadow-indigo-700 shadow-indigo-500 rounded-full bg-primary group" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="2300">
-          <a href="#popularCars" class=" w-32 flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1.5 px-1 ">
+          <a href="#catalog" class=" w-32 flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1.5 px-1 ">
             <p class="transition-all duration-[320ms] translate-x-5 group-hover:translate-x-1">
               Rent Now
             </p>
@@ -50,7 +50,10 @@
 
 <section id="catalog" class="w-full py-5 md:py-10 mt-5 md:mt-20 flex bg-bmain flex-col px-5 md:px-16 lg:px-20 ">
 <h2 class="text-main font-bold font-poppins text-[20px] md:text-[25px]">Popular Cars</h2>
-<p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
+<div class="flex flex-row justify-between w-full">
+    <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
+    <a href="/catalog" class="text-second font-poppins font-normal hover:text-black transition-all duration-200 text-[15px] md:text-20px ">See All Cars</a>
+</div>
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
     @foreach ($data as $index=>$item)
         
@@ -110,7 +113,7 @@
 
 
           <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="p-1 mt-3 md:mt-10 mb-2 shadow-lg scale-90 md:scale-100 hover:shadow-indigo-700 shadow-indigo-500 rounded-full bg-primary group  ">
-          <a href="#popularCars" class=" w-44 md:w-52 lg:w-96 lg:py-2 flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full md:py-1 px-1 ">
+          <a href="/catalog" class=" w-44 md:w-52 lg:w-96 lg:py-2 flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full md:py-1 px-1 ">
             <p class="transition-all duration-[320ms]  lg:text-[25px] translate-x-10 md:translate-x-14 lg:translate-x-28 group-hover:translate-x-1">
               Explore cars
             </p>
@@ -266,7 +269,7 @@ To settle the full rental payment prior to vehicle handover.
 <p class="text-second font-poppins font-normal text-[13px] ">Get an instant booking to catch up wheatever</p>
 <p class="text-second font-poppins font-normal text-[13px] ">you really want to achieve today. yes</p>
   <div class="p-1 mt-7 mb-2 shadow-lg hover:shadow-indigo-700 shadow-indigo-500 rounded-full w-44 bg-primary group">
-          <a href="#popularCars" class=" w w-[167px] flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1 px-2">
+          <a href="/catalog" class=" w w-[167px] flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1 px-2">
             <p class="transition-all duration-[320ms] translate-x-8 group-hover:translate-x-1">
               Rent Now
             </p>
