@@ -50,23 +50,31 @@
                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $index * 100 }}" class="flex flex-row text-main gap-2 font-poppins font-semibold md:mt-4 mt-1 text-[13px]"><img src="/svgs/ic-checkDark.svg" alt="icon" class="w-4 "> {{ trim($fitur) }}</div>
                 
             @endforeach
-                <div class="border-t border-second mt-2 md:hidden"></div>
-            <div  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex flex-row border-t justify-between border-second lg:mt-4 mt-2 pt-2 lg:pt-4">
+        </div>
+        <div class="border-t border-second mt-4 w-full"></div>
+
+
+
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="flex flex-row w-full mt-4 items-center justify-between">
+
+            <div   class="flex flex-row  justify-between  ">
                 <div class="flex flex-col" >
                     <p class="font-semibold text-main text-[13px] leading-none">{{ number_format($main->price,0,'.',',') }}</p>
                     <p class="font-normal text-second text-[12px]">/day</p>
                 </div>
-                  <div  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" class="p-1 shadow-lg scale-90 hover:shadow-indigo-700 sm:mb-3 mb-0 shadow-indigo-500 rounded-full w-24  bg-primary group">
-          <a href="#popularCars" class="  w-full flex flex-row  items-center text-white font-bold text-[13px] border border-transparent transition-all duration-300 group-hover:border-white rounded-full  px">
-            <p class="transition-all duration-[320ms] translate-x-2 group-hover:translate-x-1">
-              Rent Now
-            </p>
-            <img src="/svgs/ic-arrow-right.svg"
-                 class="opacity-0 group-hover:opacity-100 w-4 group-hover:translate-x-2 transition-all duration-[320ms]"
-                 alt="arrow nav">
-          </a>
-        </div>
             </div>
+        <div  class="p-1 shadow-lg scale-90 hover:shadow-indigo-700  shadow-indigo-500 rounded-full w-24 h-10 -mt-2 bg-primary group">
+<a href="{{ route('front.checkout',$main->slug) }}" class="  w-full flex flex-row  items-center text-white font-bold text-[13px] border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1  ">
+  <p class="transition-all duration-[320ms] translate-x-2 group-hover:translate-x-1">
+    Rent Now
+  </p>
+  <img src="/svgs/ic-arrow-right.svg"
+       class="opacity-0 group-hover:opacity-100 w-4 group-hover:translate-x-2 transition-all duration-[320ms]"
+       alt="arrow nav">
+</a>
+</div>
+</div>
+
         </div>
     </section>
 
@@ -201,7 +209,7 @@ To settle the full rental payment prior to vehicle handover.
 <p class="text-second font-poppins font-normal text-[13px] ">Get an instant booking to catch up wheatever</p>
 <p class="text-second font-poppins font-normal text-[13px] ">you really want to achieve today. yes</p>
   <div class="p-1 mt-7 mb-2 shadow-lg hover:shadow-indigo-700 shadow-indigo-500 rounded-full w-44 bg-primary group">
-          <a href="#popularCars" class=" w w-[167px] flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1 px-2">
+          <a href="/catalog" class=" w w-[167px] flex flex-row text-white font-bold border border-transparent transition-all duration-300 group-hover:border-white rounded-full py-1 px-2">
             <p class="transition-all duration-[320ms] translate-x-8 group-hover:translate-x-1">
               Rent Now
             </p>
