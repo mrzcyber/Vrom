@@ -1,5 +1,5 @@
 <x-dashboard-layout>
-<main class="flex-1 bg-gray-50 min-h-screen p-8 overflow-auto">
+<main class="flex-1 pl-72 bg-gray-50 min-h-screen p-8 overflow-auto">
 
     {{-- Greeting --}}
     <div class="flex items-center justify-between mb-8">
