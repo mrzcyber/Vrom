@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/a',function(){
     return view('admin.dashboard');
 });
+Route::get('/b',function(){
+    return view('admin.item.index');
+});
 
 Route::name('front.')->group(function(){
 Route::get('/',[LandingController::class,'index'])->name('index');
