@@ -16,7 +16,8 @@ class ItemController
         $data = Item::with(['image'=>function($query){
             $query->oldest()->limit(1);
         }])->get();
-        // return view
+
+        return view('admin.item.index');
     }
 
     /**
