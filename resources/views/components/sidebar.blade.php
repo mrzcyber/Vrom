@@ -38,8 +38,8 @@
         </a>
 
         {{-- Type --}}
-        <a href="/admin/types"
-            class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-colors duration-150">
+        <a href="/admin/type"
+            class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-indigo-300 hover:text-gray-800 transition-colors duration-150 {{ request()->is('admin/type') ? 'bg-indigo-600 text-white' : 'bg-transparent text-gray-500' }}">
             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
@@ -48,8 +48,8 @@
         </a>
 
         {{-- Brand --}}
-        <a href="/admin/brands"
-            class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition-colors duration-150">
+        <a href="/admin/brand"
+            class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-indigo-300 hover:text-gray-800 transition-colors duration-150 {{ request()->is('admin/brand') ? 'bg-indigo-600 text-white' : 'bg-transparent text-gray-500' }}">
             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
