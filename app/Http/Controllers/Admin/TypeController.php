@@ -13,7 +13,8 @@ class TypeController
     public function index()
     {
         $data = Type::get();
-        dd($data);
+        
+        return view('admin.type.index');
 
     }
 
