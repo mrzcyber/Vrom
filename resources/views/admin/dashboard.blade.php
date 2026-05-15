@@ -33,7 +33,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Total Pendapatan</p>
-                <p class="text-2xl font-bold text-gray-800">Rp 24.500.000</p>
+                <p class="text-xl font-bold text-gray-800">Rp 24.500.000</p>
                 <p class="text-xs text-emerald-500 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
@@ -54,7 +54,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Pembayaran Berhasil</p>
-                <p class="text-2xl font-bold text-gray-800">38</p>
+                <p class="text-xl font-bold text-gray-800">38</p>
                 <p class="text-xs text-emerald-500 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
@@ -75,7 +75,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Menunggu Pembayaran</p>
-                <p class="text-2xl font-bold text-gray-800">12</p>
+                <p class="text-xl font-bold text-gray-800">12</p>
                 <p class="text-xs text-amber-500 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -96,7 +96,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Pembayaran Gagal</p>
-                <p class="text-2xl font-bold text-gray-800">5</p>
+                <p class="text-xl font-bold text-gray-800">5</p>
                 <p class="text-xs text-red-400 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
