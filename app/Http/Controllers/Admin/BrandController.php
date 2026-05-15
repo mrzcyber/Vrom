@@ -13,7 +13,8 @@ class BrandController
     public function index()
     {
         $data = Brand::get();
-        dd($data);
+     
+         return view('admin.brand.index');
     }
 
     /**
