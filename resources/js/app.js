@@ -44,6 +44,8 @@ const accordions = document.querySelectorAll('.accordion');
 
 }
 
+
+
 accordions.forEach(function(quest) {
     const arrow = quest.querySelector('img');
 
@@ -89,3 +91,4 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 counters.forEach(el => observer.observe(el));
+

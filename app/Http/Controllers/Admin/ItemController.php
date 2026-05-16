@@ -25,7 +25,7 @@ class ItemController
      */
     public function create()
     {
-        
+        return view('admin.item.create');
     }
 
     /**
