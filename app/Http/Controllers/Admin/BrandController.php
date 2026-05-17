@@ -32,7 +32,8 @@ class BrandController
     {
         $data=['name'=>$request->name];
        $result = Brand::create($data);
-        dd($result);
+        
+       return redirect()->route('admin.brand.index')->banner('brand berhasil ditambahkan');
     }
 
     /**

@@ -9,8 +9,9 @@
         </div>
 
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-            <form id="typeForm">
+            <form id="typeForm" action="{{ route('admin.brand.store') }}"  method="POST">
 
+                @csrf
                 <div class="mb-8">
                     <label class="block text-sm font-semibold text-gray-700 mb-1.5">Nama Brand</label>
                     <input type="text" name="name" placeholder="Contoh: BMW"
