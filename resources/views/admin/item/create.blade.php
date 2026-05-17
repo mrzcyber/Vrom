@@ -61,19 +61,19 @@
                         <label class="block text-sm font-semibold text-gray-700 mb-1.5">Harga / Hari</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-4 flex items-center text-gray-400 text-sm font-medium pointer-events-none">Rp</span>
-                            <input type="number" name="price" placeholder="300000"
-                                class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
+                            <input type="number" min="0" name="price" placeholder="300000"
+                                class="no-spinner w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1.5">Rating (Star)</label>
                         <input type="number" name="star" step="0.1" min="0" max="5" placeholder="4.5"
-                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
+                            class="no-spinner w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1.5">Review</label>
-                        <input type="number" name="review" placeholder="100"
-                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
+                        <input type="number" min="0" name="review" placeholder="100"
+                            class="w-full no-spinner px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition" />
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                         </svg>
                         <p class="text-sm text-gray-400 group-hover:text-indigo-400 transition font-medium">Klik untuk upload gambar</p>
                         <p class="text-xs text-gray-300 mt-0.5">PNG, JPG, WEBP — maksimal 4 gambar</p>
-                        <input id="imageInput" type="file" name="images[]" multiple accept="image/*" class="hidden" />
+                        <input id="imageInput" type="file" name="image[]" multiple accept="image/*" class="hidden" />
                     </label>
                     <p class="text-xs text-gray-400 mt-1.5">Masukan  <span class="font-semibold text-indigo-400">Satu Gambar</span> Terlebih Dahulu Agar Menjadi Thumbnail Kemudian Masukan Gambar Lagi Untuk Gambar Tambahan</p>
 
@@ -103,7 +103,7 @@
 
                 {{-- Actions --}}
                 <div class="flex items-center justify-end gap-3">
-                    <a href="#"
+                    <a href="/admin/item"
                         class="px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-500 hover:bg-gray-50 transition">
                         Batal
                     </a>
