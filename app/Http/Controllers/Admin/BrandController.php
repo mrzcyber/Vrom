@@ -22,7 +22,7 @@ class BrandController
      */
     public function create()
     {
-        //
+         return view('admin.brand.create');
     }
 
     /**
