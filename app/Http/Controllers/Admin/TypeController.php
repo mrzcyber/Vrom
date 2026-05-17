@@ -23,7 +23,7 @@ class TypeController
      */
     public function create()
     {
-        //
+          return view('admin.type.create');
     }
 
     /**
