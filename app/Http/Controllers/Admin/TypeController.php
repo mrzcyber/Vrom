@@ -36,7 +36,8 @@ class TypeController
         ];
 
         $result = Type::create($data);
-        dd($result);
+        
+        return redirect()->route('admin.type.index')->banner('Type baru berhasil ditambahkan');
     }
 
     /**
