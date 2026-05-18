@@ -14,7 +14,7 @@ class TypeController
     {
         $data = Type::get();
         
-        return view('admin.type.index');
+        return view('admin.type.index',compact('data'));
 
     }
 
