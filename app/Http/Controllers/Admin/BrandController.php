@@ -51,7 +51,7 @@ class BrandController
     {
        $data = $brand;
 
-       return view('admin.brand.edit');
+       return view('admin.brand.edit',compact('data'));
     }
 
     /**
@@ -62,7 +62,7 @@ class BrandController
         $data = $brand->update([
             'name'=>$request->name
         ]);
-        dd($data);
+       return redirect()->route('admin.brand.index')->banner('brand berhasil diupdate');
     }
 
     /**
