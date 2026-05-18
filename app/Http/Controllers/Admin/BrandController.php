@@ -49,7 +49,9 @@ class BrandController
      */
     public function edit(Brand $brand)
     {
-       dd($brand);
+       $data = $brand;
+
+       return view('admin.brand.edit');
     }
 
     /**
