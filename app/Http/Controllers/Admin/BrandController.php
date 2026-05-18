@@ -12,9 +12,9 @@ class BrandController
      */
     public function index()
     {
-        $data = Brand::get();
+        $data = Brand::paginate(10);
      
-         return view('admin.brand.index');
+         return view('admin.brand.index',compact('data'));
     }
 
     /**
