@@ -54,7 +54,8 @@ class TypeController
     public function edit(Type $type)
     {
         $data = $type;
-        dd($data);
+        
+        return view('admin.type.edit',compact('data'));
     }
 
     /**
