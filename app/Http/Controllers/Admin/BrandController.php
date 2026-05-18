@@ -71,6 +71,7 @@ class BrandController
     public function destroy(Brand $brand)
     {
         $data = $brand->delete();
-        dd($data);
+        
+        return redirect()->route('admin.brand.index')->banner('brand berhasil dihapus');
     }
 }
