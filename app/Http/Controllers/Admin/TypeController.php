@@ -75,6 +75,7 @@ class TypeController
     public function destroy(Type $type)
     {
         $result = $type->delete();
-        dd($result);
+        
+        return redirect()->route('admin.type.index')->banner('Type berhasil dihapus');
     }
 }
