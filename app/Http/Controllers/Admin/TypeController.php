@@ -12,7 +12,7 @@ class TypeController
      */
     public function index()
     {
-        $data = Type::get();
+        $data = Type::paginate(10);
         
         return view('admin.type.index',compact('data'));
 
