@@ -66,7 +66,7 @@ class TypeController
         $result = $type->update([
             'name'=>$request->name
         ]);
-        dd($result);
+           return redirect()->route('admin.type.index')->banner('Type baru berhasil diupdate');
     }
 
     /**
