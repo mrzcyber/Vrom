@@ -58,9 +58,9 @@
     @foreach ($data as $index=>$item)
         
     <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="{{ $index * 300 }}" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-44 md:w-56 lg:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
-        <h3 class="font-poppins text-main font-semibold text-[20px] uppercase">{{ $item->name }}</h3>
+        <h3 class="font-poppins text-main font-semibold md:text-[20px] text-[15px] uppercase">{{ $item->name }}</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
-        <div class="w-full overflow-hidden  rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
+        <div class="w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format($item->price,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
             <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
