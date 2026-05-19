@@ -33,7 +33,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Total Pendapatan</p>
-                <p class="text-xl font-bold text-gray-800">Rp 24.500.000</p>
+                <p class="text-xl font-bold text-gray-800">Rp {{ number_format($totalPendapatan,0,',','.') }}</p>
                 <p class="text-xs text-emerald-500 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
@@ -54,7 +54,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Pembayaran Berhasil</p>
-                <p class="text-xl font-bold text-gray-800">38</p>
+                <p class="text-xl font-bold text-gray-800">{{ $totalBerhasil }}</p>
                 <p class="text-xs text-emerald-500 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
@@ -75,7 +75,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Menunggu Pembayaran</p>
-                <p class="text-xl font-bold text-gray-800">12</p>
+                <p class="text-xl font-bold text-gray-800">{{ $totalPending }}</p>
                 <p class="text-xs text-amber-500 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -96,7 +96,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Pembayaran Gagal</p>
-                <p class="text-xl font-bold text-gray-800">5</p>
+                <p class="text-xl font-bold text-gray-800">{{ $totalGagal }}</p>
                 <p class="text-xs text-red-400 font-semibold flex items-center gap-1 mt-0.5">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -165,151 +165,47 @@
                 <tbody class="divide-y divide-gray-50">
 
                     {{-- Row 1: success --}}
+                    @foreach ($data as $item)
+                        
                     <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">ORD-20240001</td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Budi Santoso</td>
+                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">{{ $item->order_id }}</td>
+                        <td class="px-4 py-4 font-semibold text-gray-800">{{ $item->name }}</td>
                         <td class="px-4 py-4 text-gray-500 text-xs">
-                            <span class="block">01 Jan 2025</span>
-                            <span class="block text-gray-400">– 05 Jan 2025</span>
+                            <span class="block">{{ $item->start_date->format('d M Y') }}</span>
+                            <span class="block text-gray-400">– {{ $item->end_date->format('d M Y')  }}</span>
                         </td>
-                        <td class="px-4 py-4 text-gray-600">4 Hari</td>
-                        <td class="px-4 py-4 text-gray-600">Jakarta</td>
-                        <td class="px-4 py-4 text-gray-600">BCA</td>
-                        <td class="px-4 py-4 text-gray-600">Transfer Bank</td>
-                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp 1.200.000</td>
+                        <td class="px-4 py-4 text-gray-600 uppercase">{{ $item->total_day }} Hari</td>
+                        <td class="px-4 py-4 text-gray-600 uppercase">{{ $item->city }}</td>
+                        <td class="px-4 py-4 text-gray-600 uppercase">{{ $item->bank }}</td>
+                        <td class="px-4 py-4 text-gray-600 uppercase">{{ $item->payment_type}}</td>
+                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp {{ number_format($item->total_price,0,',','.')}}</td>
                         <td class="px-6 py-4 text-center">
+                            @if ($item->payment_status == 'success')
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">
                                 Berhasil
                             </span>
-                        </td>
-                    </tr>
-
-                    {{-- Row 2: pending --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">ORD-20240002</td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Siti Rahayu</td>
-                        <td class="px-4 py-4 text-gray-500 text-xs">
-                            <span class="block">10 Jan 2025</span>
-                            <span class="block text-gray-400">– 12 Jan 2025</span>
-                        </td>
-                        <td class="px-4 py-4 text-gray-600">2 Hari</td>
-                        <td class="px-4 py-4 text-gray-600">Bandung</td>
-                        <td class="px-4 py-4 text-gray-600">Mandiri</td>
-                        <td class="px-4 py-4 text-gray-600">Transfer Bank</td>
-                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp 600.000</td>
-                        <td class="px-6 py-4 text-center">
+                            
+                            @elseif($item->payment_status == 'pending')
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-600 border border-amber-100">
                                 Pending
                             </span>
-                        </td>
-                    </tr>
-
-                    {{-- Row 3: failed --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">ORD-20240003</td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Andi Wijaya</td>
-                        <td class="px-4 py-4 text-gray-500 text-xs">
-                            <span class="block">15 Jan 2025</span>
-                            <span class="block text-gray-400">– 20 Jan 2025</span>
-                        </td>
-                        <td class="px-4 py-4 text-gray-600">5 Hari</td>
-                        <td class="px-4 py-4 text-gray-600">Surabaya</td>
-                        <td class="px-4 py-4 text-gray-600">BNI</td>
-                        <td class="px-4 py-4 text-gray-600">Transfer Bank</td>
-                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp 1.500.000</td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-500 border border-red-100">
-                                Gagal
+                            
+                            @else
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-600 border border-red-100">
+                                Failed
                             </span>
+                            @endif
                         </td>
                     </tr>
-
-                    {{-- Row 4: success --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">ORD-20240004</td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Dewi Lestari</td>
-                        <td class="px-4 py-4 text-gray-500 text-xs">
-                            <span class="block">22 Jan 2025</span>
-                            <span class="block text-gray-400">– 24 Jan 2025</span>
-                        </td>
-                        <td class="px-4 py-4 text-gray-600">2 Hari</td>
-                        <td class="px-4 py-4 text-gray-600">Yogyakarta</td>
-                        <td class="px-4 py-4 text-gray-600">BRI</td>
-                        <td class="px-4 py-4 text-gray-600">QRIS</td>
-                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp 750.000</td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">
-                                Berhasil
-                            </span>
-                        </td>
-                    </tr>
-
-                    {{-- Row 5: pending --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">ORD-20240005</td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Rudi Hermawan</td>
-                        <td class="px-4 py-4 text-gray-500 text-xs">
-                            <span class="block">28 Jan 2025</span>
-                            <span class="block text-gray-400">– 02 Feb 2025</span>
-                        </td>
-                        <td class="px-4 py-4 text-gray-600">5 Hari</td>
-                        <td class="px-4 py-4 text-gray-600">Medan</td>
-                        <td class="px-4 py-4 text-gray-600">BCA</td>
-                        <td class="px-4 py-4 text-gray-600">Transfer Bank</td>
-                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp 2.000.000</td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-600 border border-amber-100">
-                                Pending
-                            </span>
-                        </td>
-                    </tr>
-
-                    {{-- Row 6: success --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4 text-gray-500 text-xs font-mono">ORD-20240006</td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Nina Kusuma</td>
-                        <td class="px-4 py-4 text-gray-500 text-xs">
-                            <span class="block">05 Feb 2025</span>
-                            <span class="block text-gray-400">– 07 Feb 2025</span>
-                        </td>
-                        <td class="px-4 py-4 text-gray-600">2 Hari</td>
-                        <td class="px-4 py-4 text-gray-600">Bali</td>
-                        <td class="px-4 py-4 text-gray-600">BNI</td>
-                        <td class="px-4 py-4 text-gray-600">QRIS</td>
-                        <td class="px-4 py-4 text-right font-semibold text-gray-800">Rp 900.000</td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">
-                                Berhasil
-                            </span>
-                        </td>
-                    </tr>
+                    
+                    @endforeach
 
                 </tbody>
             </table>
         </div>
 
         {{-- Pagination --}}
-        <div class="px-6 py-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p class="text-xs text-gray-400">Menampilkan 1 hingga 6 dari 256 data</p>
-            <div class="flex items-center gap-1">
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-600 text-white text-xs font-semibold">1</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-xs font-semibold transition-colors">2</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-xs font-semibold transition-colors">3</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-xs font-semibold transition-colors">4</button>
-                <span class="text-gray-400 text-xs px-1">...</span>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-xs font-semibold transition-colors">40</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+{{ $data->links('components.pagination') }}
 
     </div>
 
