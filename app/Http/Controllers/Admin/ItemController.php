@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ItemRequest;
+use App\Models\Brand;
 use App\Models\Item;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ItemController
@@ -25,7 +27,9 @@ class ItemController
      */
     public function create()
     {
-        return view('admin.item.create');
+        $brand = Brand::get();
+        $type = Type::get();
+        return view('admin.item.create',compact('brand','type'));
     }
 
     /**
@@ -34,7 +38,6 @@ class ItemController
     public function store(ItemRequest $request)
     {
         $item = Item::create($request->only(['name','type_id','brand_id','features','price','star','review']));
-
         if($request->hasFile('image')){
             foreach($request->file('image') as $file){
                 $url = $file->store('produk','public');
@@ -42,7 +45,8 @@ class ItemController
             }
         }
 
-    //    return view
+        return redirect()->route('admin.item.index')->banner('item berhasil ditambahkan');
+
     }
 
     /**

@@ -10,8 +10,8 @@
         </div>
 
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-            <form id="itemForm">
-
+            <form action="{{ route('admin.item.store') }}" id="itemForm" method="POST" enctype="multipart/form-data">
+                @csrf
                 {{-- Nama --}}
                 <div class="mb-6">
                     <label class="block text-sm font-semibold text-gray-700 mb-1.5">Nama Kendaraan</label>
@@ -26,11 +26,10 @@
                         <select name="brand_id"
                             class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition appearance-none cursor-pointer">
                             <option value="" disabled selected>Pilih Brand</option>
-                            <option value="1">Toyota</option>
-                            <option value="2">Honda</option>
-                            <option value="3">Mitsubishi</option>
-                            <option value="4">Suzuki</option>
-                            <option value="5">Daihatsu</option>
+                           @foreach ($brand as $brand)
+                           <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                           @endforeach
+                           
                         </select>
                     </div>
                     <div>
@@ -38,11 +37,9 @@
                         <select name="type_id"
                             class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition appearance-none cursor-pointer">
                             <option value="" disabled selected>Pilih Type</option>
-                            <option value="1">MPV</option>
-                            <option value="2">Hatchback</option>
-                            <option value="3">SUV</option>
-                            <option value="4">Sedan</option>
-                            <option value="5">Pickup</option>
+                            @foreach ($type as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
