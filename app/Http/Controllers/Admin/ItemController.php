@@ -86,8 +86,11 @@ class ItemController
      */
     public function edit(Item $item)
     {
-        $data = $item->get();
-        // return view
+        $data = $item->load('type','brand','image');
+        $brand = Brand::get();
+        $type = Type::get();
+        
+        return view('admin.item.edit',compact('data','brand','type'));
     }
 
     /**
@@ -113,7 +116,7 @@ class ItemController
         }
         $result=$item->update($input);
         
-        // return view
+        return redirect()->route('admin.item.index')->banner('item berhasil diperbarui');
     }
 
     /**

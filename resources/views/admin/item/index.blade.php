@@ -71,14 +71,9 @@
                 <p class="text-xs text-indigo-500 font-semibold mt-0.5">Data Kendaraan Hari Ini</p>
             </div>
             <div class="flex items-center gap-3">
-                {{-- Filter --}}
-                <div class="flex rounded-xl overflow-hidden border border-gray-200 text-xs font-semibold">
-                    <button class="px-4 py-2 bg-indigo-600 text-white transition-colors">Semua</button>
-                    <button class="px-4 py-2 text-gray-500 hover:bg-gray-50 transition-colors border-l border-gray-200">Tersedia</button>
-                    <button class="px-4 py-2 text-gray-500 hover:bg-gray-50 transition-colors border-l border-gray-200">Terboking</button>
-                </div>
+         
                 {{-- Add Button --}}
-                <a href="/admin/items/create" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-semibold hover:bg-indigo-700 transition-colors shadow-sm">
+                <a href="/admin/item/create" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-semibold hover:bg-indigo-700 transition-colors shadow-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
