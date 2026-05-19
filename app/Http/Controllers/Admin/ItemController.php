@@ -6,6 +6,7 @@ use App\Http\Requests\ItemRequest;
 use App\Models\Brand;
 use App\Models\Item;
 use App\Models\Type;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ItemController
@@ -13,13 +14,36 @@ class ItemController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Item::with(['image'=>function($query){
-            $query->oldest()->limit(1);
-        }])->get();
+        $bookedToday = Item::whereHas('booking', function ($query) {
+        $query->whereDate('start_date', '<=', today())
+          ->whereDate('end_date', '>=', today())
+          ->whereIn('payment_status', ['pending', 'success']);
+        })->count();
+        
+        $car = Item::count();
 
-        return view('admin.item.index');
+        if($request->get('q')){
+        $q = $request->get('q');
+             $data =Item::where('name', 'LIKE', "%{$q}%")
+    ->with(['thumbnail', 'brand', 'type', 'booking' => function ($query) {
+        $query->whereDate('start_date', '<=', today())
+              ->whereDate('end_date', '>=', today())
+              ->whereIn('payment_status', ['pending', 'success']);
+    }])->paginate(6);
+
+        return view('admin.item.index',compact('bookedToday','data','car'));
+        }
+
+
+        $data =Item::with(['thumbnail', 'brand', 'type', 'booking' => function ($query) {
+    $query->whereDate('start_date', '<=', today())
+          ->whereDate('end_date', '>=', today())
+          ->whereIn('payment_status', ['pending', 'success']);
+}])->paginate(6);
+
+        return view('admin.item.index',compact('bookedToday','data','car'));
     }
 
     /**
@@ -105,7 +129,7 @@ class ItemController
             }
             $item->delete();
 
-            // return view
+            return redirect()->route('admin.item.index')->banner('Item berhasil dihapus');
 
     }
 }

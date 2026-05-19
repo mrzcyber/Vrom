@@ -10,7 +10,11 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
                 </svg>
             </span>
-            <input type="text" placeholder="Search..." class="pl-9 pr-4 py-2 rounded-xl bg-white border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-56 shadow-sm" />
+            <form action="{{ route('admin.item.index') }}" method="get">
+                @csrf
+                <input type="text" name="q" placeholder="Search..." class="pl-9 pr-4 py-2 rounded-xl bg-white border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-56 shadow-sm" />
+                <button type="submit" class="hidden"></button>
+            </form>
         </div>
     </div>
 
@@ -25,7 +29,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Total Kendaraan</p>
-                <p class="text-2xl font-bold text-gray-800">24</p>
+                <p class="text-2xl font-bold text-gray-800">{{ $car }}</p>
                 <p class="text-xs text-emerald-500 font-semibold mt-0.5">Semua unit terdaftar</p>
             </div>
         </div>
@@ -38,7 +42,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Kendaraan Tersedia</p>
-                <p class="text-2xl font-bold text-gray-800">18</p>
+                <p class="text-2xl font-bold text-gray-800">{{ $car - $bookedToday }}</p>
                 <p class="text-xs text-emerald-500 font-semibold mt-0.5">Siap disewa</p>
             </div>
         </div>
@@ -51,7 +55,7 @@
             </div>
             <div>
                 <p class="text-xs text-gray-400 font-medium mb-0.5">Kendaraan Terboking</p>
-                <p class="text-2xl font-bold text-gray-800">6</p>
+                <p class="text-2xl font-bold text-gray-800">{{ $bookedToday }}</p>
                 <p class="text-xs text-amber-500 font-semibold mt-0.5">Sedang disewa</p>
             </div>
         </div>
@@ -64,7 +68,7 @@
         <div class="px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-gray-100">
             <div>
                 <h2 class="text-lg font-bold text-gray-800">Semua Item</h2>
-                <p class="text-xs text-indigo-500 font-semibold mt-0.5">Data Kendaraan</p>
+                <p class="text-xs text-indigo-500 font-semibold mt-0.5">Data Kendaraan Hari Ini</p>
             </div>
             <div class="flex items-center gap-3">
                 {{-- Filter --}}
@@ -98,244 +102,67 @@
                 </thead>
                 <tbody class="divide-y divide-gray-50">
 
-                    {{-- Row 1 --}}
+                    {{-- Row  --}}
+                    @foreach ($data as $item)
+                        
                     <tr class="hover:bg-gray-50/60 transition-colors duration-150">
                         <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
-                                <img src="/img/bg-car.jpg" alt="Toyota Avanza" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 border border-gray-100" />
+                                <img src="{{ asset('storage/'.$item->thumbnail->path) }}" alt="Toyota Avanza" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 border border-gray-100" />
                                 <div>
-                                    <p class="font-semibold text-gray-800">Toyota Avanza</p>
-                                    <p class="text-xs text-gray-400 font-mono">toyota-avanza</p>
+                                    <p class="font-semibold uppercase text-gray-800">{{ $item->name }}</p>
+                                    <p class="text-xs text-gray-400 font-mono">{{ $item->slug }}</p>
                                 </div>
                             </div>
                         </td>
                         <td class="px-4 py-4">
-                            <p class="font-medium text-gray-700">Toyota</p>
-                            <p class="text-xs text-gray-400">MPV</p>
+                            <p class="font-medium text-gray-700 uppercase">{{ $item->brand->name }}</p>
+                            <p class="text-xs text-gray-400 capitalize">{{ $item->type->name }}</p>
                         </td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Rp 350.000</td>
+                        <td class="px-4 py-4 font-semibold text-gray-800">Rp{{ number_format($item->price,0,',','.') }}</td>
                         <td class="px-4 py-4">
                             <div class="flex items-center gap-1">
                                 <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <span class="text-sm font-semibold text-gray-700">4.8</span>
-                                <span class="text-xs text-gray-400">(124)</span>
+                                <span class="text-sm font-semibold text-gray-700">{{ $item->star }}</span>
+                                <span class="text-xs text-gray-400">( {{ $item->review }} )</span>
                             </div>
                         </td>
-                        <td class="px-4 py-4 text-gray-500 text-xs max-w-[160px] truncate">AC, GPS, Bluetooth, Kursi Kulit</td>
+                        <td class="px-4 py-4 text-gray-500 text-xs max-w-[160px] truncate">{{ $item->features }}</td>
                         <td class="px-4 py-4 text-center">
+                            @if ($item->booking->isNotEmpty())
+
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-gray-800 border border-gray-300">Terboking</span>
+                            @else
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">Tersedia</span>
+                            @endif
                         </td>
                         <td class="px-6 py-4 text-center">
                             <div class="flex items-center justify-center gap-2">
-                                <a href="/admin/items/1/edit" class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-100 transition-colors">
+                                <a href="{{ route('admin.item.edit',$item->slug) }}" class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-100 transition-colors">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
                                 </a>
-                                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-400 hover:bg-red-100 transition-colors">
+                                  <form action="{{ route('admin.item.destroy',$item->slug) }}" method="post">
+                                        @csrf @method('delete')
+                                <button type="submit" onclick="return confirm('apakah anda yakin ingin menghapusnya?')"  class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-400 hover:bg-red-100 transition-colors">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                     </svg>
                                 </button>
+                                  </form>
                             </div>
                         </td>
                     </tr>
+                    @endforeach
 
-                    {{-- Row 2 --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4">
-                            <div class="flex items-center gap-3">
-                                <img src="/img/bg-car.jpg" alt="Honda Jazz" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 border border-gray-100" />
-                                <div>
-                                    <p class="font-semibold text-gray-800">Honda Jazz</p>
-                                    <p class="text-xs text-gray-400 font-mono">honda-jazz</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4">
-                            <p class="font-medium text-gray-700">Honda</p>
-                            <p class="text-xs text-gray-400">Hatchback</p>
-                        </td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Rp 280.000</td>
-                        <td class="px-4 py-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <span class="text-sm font-semibold text-gray-700">4.5</span>
-                                <span class="text-xs text-gray-400">(89)</span>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 text-gray-500 text-xs max-w-[160px] truncate">AC, USB Charger, Kamera Mundur</td>
-                        <td class="px-4 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-600 border border-amber-100">Terboking</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="flex items-center justify-center gap-2">
-                                <a href="/admin/items/2/edit" class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </a>
-                                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-400 hover:bg-red-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    {{-- Row 3 --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4">
-                            <div class="flex items-center gap-3">
-                                <img src="/img/bg-car.jpg" alt="Mitsubishi Xpander" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 border border-gray-100" />
-                                <div>
-                                    <p class="font-semibold text-gray-800">Mitsubishi Xpander</p>
-                                    <p class="text-xs text-gray-400 font-mono">mitsubishi-xpander</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4">
-                            <p class="font-medium text-gray-700">Mitsubishi</p>
-                            <p class="text-xs text-gray-400">MPV</p>
-                        </td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Rp 420.000</td>
-                        <td class="px-4 py-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <span class="text-sm font-semibold text-gray-700">4.9</span>
-                                <span class="text-xs text-gray-400">(210)</span>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 text-gray-500 text-xs max-w-[160px] truncate">AC, GPS, Sunroof, 7 Kursi</td>
-                        <td class="px-4 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">Tersedia</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="flex items-center justify-center gap-2">
-                                <a href="/admin/items/3/edit" class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </a>
-                                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-400 hover:bg-red-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    {{-- Row 4 --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4">
-                            <div class="flex items-center gap-3">
-                                <img src="/img/bg-car.jpg" alt="Suzuki Ertiga" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 border border-gray-100" />
-                                <div>
-                                    <p class="font-semibold text-gray-800">Suzuki Ertiga</p>
-                                    <p class="text-xs text-gray-400 font-mono">suzuki-ertiga</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4">
-                            <p class="font-medium text-gray-700">Suzuki</p>
-                            <p class="text-xs text-gray-400">MPV</p>
-                        </td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Rp 300.000</td>
-                        <td class="px-4 py-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <span class="text-sm font-semibold text-gray-700">4.6</span>
-                                <span class="text-xs text-gray-400">(76)</span>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 text-gray-500 text-xs max-w-[160px] truncate">AC, Bluetooth, 7 Kursi</td>
-                        <td class="px-4 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-600 border border-amber-100">Terboking</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="flex items-center justify-center gap-2">
-                                <a href="/admin/items/4/edit" class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </a>
-                                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-400 hover:bg-red-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    {{-- Row 5 --}}
-                    <tr class="hover:bg-gray-50/60 transition-colors duration-150">
-                        <td class="px-6 py-4">
-                            <div class="flex items-center gap-3">
-                                <img src="/img/bg-car.jpg" alt="Daihatsu Xenia" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 border border-gray-100" />
-                                <div>
-                                    <p class="font-semibold text-gray-800">Daihatsu Xenia</p>
-                                    <p class="text-xs text-gray-400 font-mono">daihatsu-xenia</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4">
-                            <p class="font-medium text-gray-700">Daihatsu</p>
-                            <p class="text-xs text-gray-400">MPV</p>
-                        </td>
-                        <td class="px-4 py-4 font-semibold text-gray-800">Rp 270.000</td>
-                        <td class="px-4 py-4">
-                            <div class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <span class="text-sm font-semibold text-gray-700">4.4</span>
-                                <span class="text-xs text-gray-400">(58)</span>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 text-gray-500 text-xs max-w-[160px] truncate">AC, USB Charger, 7 Kursi</td>
-                        <td class="px-4 py-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-100">Tersedia</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <div class="flex items-center justify-center gap-2">
-                                <a href="/admin/items/5/edit" class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </a>
-                                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-400 hover:bg-red-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
 
                 </tbody>
             </table>
         </div>
 
         {{-- Pagination --}}
-        <div class="px-6 py-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p class="text-xs text-gray-400">Menampilkan 1 hingga 5 dari 24 data</p>
-            <div class="flex items-center gap-1">
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-600 text-white text-xs font-semibold">1</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-xs font-semibold transition-colors">2</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 text-xs font-semibold transition-colors">3</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+{{ $data->links('components.pagination') }}
 
     </div>
 
