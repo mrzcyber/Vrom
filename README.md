@@ -10,10 +10,14 @@
 
 ---
  
-## 📸 Screenshot
+## 📸 Preview
  
 ![Homepage](https://github.com/user-attachments/assets/d295e122-57be-43cc-a790-6c23f96e13a3)
  
+---
+
+![Dashboard](https://github.com/user-attachments/assets/fc9b8e32-1187-473b-a37b-a332ed0b77e6)
+
 ---
 
 ## 📋 Daftar Isi
