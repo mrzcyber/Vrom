@@ -29,7 +29,7 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
 $photoPath = null;
-if ($input['profile_photo_path'] ) {
+if (isset($input['profile_photo_path'])) {
     $photoPath = $input['profile_photo_path']->store('profile', 'public');
 }
 

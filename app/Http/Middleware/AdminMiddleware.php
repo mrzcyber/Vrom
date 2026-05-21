@@ -20,7 +20,7 @@ class AdminMiddleware
             return redirect()->route('/login');
         }
         if(Auth::user()->role !=='admin'){
-            return redirect()->route('index');
+            return redirect()->route('front.index');
         }
             return $next($request);
     }
