@@ -193,7 +193,7 @@ To settle the full rental payment prior to vehicle handover.
         <div class=" w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->thumbnail->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format($item->price,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
-            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">({{ $item->star }})  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
+            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">({{ $item->star }}/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
         </article>
     </a>
     @endforeach
