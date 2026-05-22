@@ -4,14 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\TypeRequest;
 use App\Models\Type;
+use Illuminate\Http\Request;
 
 class TypeController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request )
     {
+
+        if($request->get('q')){
+            $q = $request->get('q');
+            $data = Type::where('name','LIKE',"{$q}%")->paginate(10);
+                   return view('admin.type.index',compact('data'));
+        }
+
         $data = Type::paginate(10);
         
         return view('admin.type.index',compact('data'));
