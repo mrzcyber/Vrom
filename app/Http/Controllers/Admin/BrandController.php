@@ -4,14 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\BrandRequest;
 use App\Models\Brand;
+use Illuminate\Http\Request;
 
 class BrandController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+    
+          if($request->get('q')){
+            $q = $request->get('q');
+            $data = Brand::where('name','LIKE',"{$q}%")->paginate(10);
+            return view('admin.brand.index',compact('data'));
+        }
+
         $data = Brand::paginate(10);
      
          return view('admin.brand.index',compact('data'));
