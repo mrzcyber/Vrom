@@ -30,7 +30,7 @@
         x-transition:enter-end="opacity-100 translate-y-0"
         class="absolute flex  list-none gap-1 flex-col justify-start border border-second rounded-xl p-1 pl-2 -bottom-24 right-1 w-full ">
         @if ( auth()->user()->role === 'admin')
-            <a href="" class="font-medium font-poppins text-main ">Dashboard</a>
+            <a href="/admin/dashboard" class="font-medium font-poppins text-main ">Dashboard</a>
         @endif
         <a href="{{ route('front.profil') }}" class="font-medium font-poppins text-main ">My Transaction</a>
         <button form="logout-form" type="submit" class="w-full flex justify-start font-medium z-50 cursor-pointer font-poppins text-red-500 hover:text-main/50 transition-all duration-300">Logout</button>
@@ -85,8 +85,10 @@
                         @endif
                     </button>
                 </div>
-                
-    <a href="{{ route('front.profil') }}" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300 mt-5 ">My Transaction</a>
+      @if ( auth()->user()->role === 'admin')
+            <a href="/admin/dashboard" class="font-medium font-poppins text-main ">Dashboard</a>
+        @endif
+    <a href="{{ route('front.profil') }}" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300  ">My Transaction</a>
                 @endauth
     <a href="/" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300 ">Home</a>
     <a href="/#catalog" class="font-medium font-poppins text-main hover:text-main/50 transition-all duration-300">Catalog</a>
