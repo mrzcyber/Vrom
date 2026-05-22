@@ -6,17 +6,6 @@
         <h1 class="text-2xl font-bold text-gray-800">
             Hello, Admin 👋,
         </h1>
-        <div class="relative">
-            <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                </svg>
-            </span>
-            <input type="text" placeholder="Search..."
-                class="pl-9 pr-4 py-2 rounded-xl bg-white border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-56 shadow-sm" />
-        </div>
     </div>
 
     {{-- Stats Cards --}}
@@ -126,16 +115,23 @@
                                 d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
                         </svg>
                     </span>
-                    <input type="text" placeholder="Cari pemesanan..."
-                        class="pl-9 pr-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-52" />
+                 <form action="{{ route('admin.dashboard') }}" method="get">
+                @csrf
+                <input type="text" name="q" placeholder="Cari Pemesan..." class="pl-9 pr-4 py-2 rounded-xl bg-white border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 w-56 shadow-sm" />
+                <button type="submit" class="hidden"></button>
+            </form>
                 </div>
                 <div class="relative">
-                    <select
-                        class="appearance-none pl-3 pr-8 py-2 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 cursor-pointer">
-                        <option>Terbaru</option>
-                        <option>Terlama</option>
-                        <option>Harga Tertinggi</option>
-                    </select>
+            <form method="get" action="{{ route('admin.dashboard') }}">
+                @csrf
+                <select name="status" onchange="this.form.submit()"
+                    class="appearance-none pl-3 pr-8 py-2 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 cursor-pointer">
+                    <option value="">Semua</option>
+                    <option value="success" {{ request('status') == 'success' ? 'selected' : '' }}>Success</option>
+                    <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="failed"  {{ request('status') == 'failed'  ? 'selected' : '' }}>Failed</option>
+                </select>
+            </form>
                     <span class="absolute inset-y-0 right-2 flex items-center pointer-events-none text-gray-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24">
