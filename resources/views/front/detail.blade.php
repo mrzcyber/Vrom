@@ -2,11 +2,11 @@
 <main class="w-full  overflow-hidden  bg-bmain ">
     <ul>
         <li class=" pt-10 pl-10 md:pl-20 md:px-12  flex flex-row gap-2 items-center">
-            <a href="" class="font-poppins font-normal text-second" >Home</a>
+            <a href="/" class="font-poppins font-normal text-second" >Home</a>
             <p class="font-poppins font-normal text-second" >/</p>
-            <a href="" class="font-poppins font-normal text-second" >Porsche</a>
+            <a href="#" class="font-poppins font-normal text-second capitalize" >{{ $brand }}</a>
             <p class="font-poppins font-normal text-second" >/</p>
-            <a href="" class="font-poppins font-medium text-main" >Details</a>
+            <a href="#" class="font-poppins font-medium text-main" >Details</a>
         </li>
     </ul>
 
@@ -190,10 +190,10 @@ To settle the full rental payment prior to vehicle handover.
     <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-42 overflow-hidden md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold text-[15px] md:text-[20px] uppercase">{{ $item->name }}</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
-        <div class=" w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
+        <div class=" w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->thumbnail->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format($item->price,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
-            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">(4.7/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
+            <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">({{ $item->star }})  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
         </article>
     </a>
     @endforeach
