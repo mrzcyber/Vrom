@@ -1,4 +1,5 @@
 <x-app-layout>
+     <x-slot name="title">Catalog - {{ config('app.name') }}</x-slot>
     <main class="w-full min-h-screen bg-bmain">
 
 

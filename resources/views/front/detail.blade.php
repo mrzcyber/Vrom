@@ -1,4 +1,5 @@
 <x-app-layout>
+     <x-slot name="title">Detail - {{ config('app.name') }}</x-slot>
 <main class="w-full  overflow-hidden  bg-bmain ">
     <ul>
         <li class=" pt-10 pl-10 md:pl-20 md:px-12  flex flex-row gap-2 items-center">

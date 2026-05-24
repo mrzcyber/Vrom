@@ -1,4 +1,5 @@
 <x-app-layout>
+     <x-slot name="title">Home - {{ config('app.name') }}</x-slot>
 <main class="w-full mt-10 overflow-hidden flex flex-col  justify-center items-center">
 <section  class="w-full flex justify-center items-center  relative">
     <h1 class=" uppercase font-poppins font-extrabold text-bmain text-[80px] md:text-[170px] lg:text-[220px] flex flex-col leading-tight lg:leading-none ">

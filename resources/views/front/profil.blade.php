@@ -1,4 +1,5 @@
 <x-app-layout>
+     <x-slot name="title">Profile - {{ config('app.name') }}</x-slot>
 <main class="w-full h-screen pt-5 md:px-10 px-5 bg-bmain ">
 <h1 class="text-main font-poppins font-bold text-[20px] mt-10"> My Booking</h1>
 <p class="text-second font-poppins font-normal text-[15px]">Your personal rental history</p>

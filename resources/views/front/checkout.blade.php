@@ -1,4 +1,5 @@
 <x-app-layout>
+   <x-slot name="title">Checkout - {{ config('app.name') }}</x-slot>
   <section class="bg-darkGrey w-full overflow-hidden bg-bmain flex justify-center items-center lg:px-10 py-[70px]">
     <div class="container justify-center w-full flex flex-col items-center lg:block">
       <header class="mb-[30px] lg:block flex items-center flex-col justify-center">

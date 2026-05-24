@@ -1,4 +1,5 @@
 <x-app-layout>
+   <x-slot name="title">Success - {{ config('app.name') }}</x-slot>
 <main class="w-full h-screen pb-20 flex items-center justify-center pl-2">
 <div class="flex flex-col w-full justify-center items-center  ">
     <h1 class="capitalize font-poppins text-main font-bold md:text-[25px] mb-1">succes booking</h1>
