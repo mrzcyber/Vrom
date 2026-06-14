@@ -80,7 +80,6 @@ Sistem memastikan satu kendaraan tidak bisa dipesan dua kali di tanggal yang sam
 | Laravel | ^13.0 | Framework utama |
 | Laravel Jetstream | ^5.5 | Scaffolding autentikasi & profil |
 | Laravel Sanctum | ^4.0 | API token authentication |
-| Livewire | ^3.6 | Reactive UI components |
 | Midtrans PHP SDK | ^2.6 | Payment gateway |
 | Spatie Sluggable | ^3.8 | Auto-generate URL slug |
 
@@ -97,6 +96,11 @@ Sistem memastikan satu kendaraan tidak bisa dipesan dua kali di tanggal yang sam
 - **MySQL** — Database utama
 - **Queue System** — Laravel Queue (database driver) untuk job async
 - **Session** — Database-based session management
+  
+### Supporting Tools
+- **Postman** — Sebagai Tools untuk membantu pengetesan sistem di backend
+- **Chrome Extension** — Menguji responsivitas website 
+- **DBdiagram** — Mempermudah dalam pembuatan ERD	
 
 ---
 
