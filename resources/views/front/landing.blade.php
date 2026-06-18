@@ -17,6 +17,7 @@
             data-aos-delay="600"
             src="/img/porsche.webp" 
             alt="main content" 
+            loading="lazy"
             class="w-full">
     </div>
 </section>
@@ -55,13 +56,13 @@
     <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
     <a href="/catalog" class="text-second font-poppins font-normal hover:text-black transition-all duration-200 text-[15px] md:text-20px ">See All Cars</a>
 </div>
-<div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
+<div class="w-full lg:pl-16 lg:px-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
     @foreach ($data as $index=>$item)
         
     <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="{{ $index * 300 }}" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-44 md:w-56 lg:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold md:text-[20px] text-[15px] uppercase">{{ $item->name }}</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
-        <div class="w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
+        <div class="w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->image->first()->path) }}" loading="lazy" alt=" photo product " loading="lazy" class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format($item->price,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
             <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">({{ $item->star }}/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
@@ -131,7 +132,7 @@
     <div data-aos="fade-right" data-aos-duration="1000" class="flex w-full flex-col ">
         <h1 class="font-poppins font-semibold text-main/90 md:text-[50px] text-[30px] ">About Vrom</h1>
         <p class="font-poppins mt-2 font-medium text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aperiam quos. Nemo fuga molestiae, atque dignissimos nesciunt ipsa officia eum harum repellendus quisquam cupiditate provident doloremque laborum quia libero aut inventore vitae aperiam, quod debitis pariatur nulla est? Nobis quo blanditiis quam sequi atque est aperiam excepturi. Quasi, cum quae.
+       We are a trusted car rental company dedicated to providing safe, comfortable, and reliable transportation solutions for every journey. With a fleet of well-maintained vehicles and a simple booking process, we serve business trips, family vacations, and daily travel needs. Customer satisfaction is our top priority, which is why we focus on quality service, competitive pricing, and dependable vehicles. Our experienced team is committed to ensuring every ride is smooth.
         </p>
         <article class="w-full flex flex-row mt-7 md:mt-14 md:scale-100 ">
             <div class="flex flex-col items-center leading-none pr-5">
@@ -151,7 +152,7 @@
     </div>
     <div data-aos="fade-left" data-aos-duration="1000" class="w-full relative h-52 md:h-96 md:mt-10 mt-5 ">
         <div class=" w-full max-w-2xl rounded-2xl h-52 md:h-96 overflow-hidden">
-            <img src="/img/owncar.jpg" alt="own car photo" class="w-full h-full object-center object-cover">
+            <img src="/img/owncar.jpg" alt="own car photo" loading="lazy" class="w-full h-full object-center object-cover">
             <div class="absolute z-50 -bottom-7 md:-left-10 -left-6 bg-white rounded-2xl py-1 px-3 w-48 shadow-sm shadow-black/50 ">
                 <p class="font-poppins font-semibold text-main">Owner</p>
                 <p class="font-poppins font-medium text-main">Alex Robert Carlos</p>

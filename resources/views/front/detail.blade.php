@@ -19,7 +19,7 @@
             @foreach ($main->image as $image)
                 
             <div class="swiper-slide">
-                <img src="{{ asset('storage/'.$image->path) }}" class="w-full h-full object-cover" />
+                <img src="{{ asset('storage/'.$image->path) }}" loading="lazy" class="w-full h-full object-cover" />
             </div>
             @endforeach
 
@@ -31,7 +31,7 @@
             @foreach ($main->image as $image)
                 
             <div class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent transition-all">
-                <img src="{{asset('storage/'.$image->path)}}" class="h-20 w-full object-cover">
+                <img src="{{asset('storage/'.$image->path)}}" loading="lazy" class="h-20 w-full object-cover">
             </div>
             @endforeach
 
@@ -60,7 +60,7 @@
 
             <div   class="flex flex-row  justify-between  ">
                 <div class="flex flex-col" >
-                    <p class="font-semibold text-main text-[13px] leading-none">{{ number_format($main->price,0,'.',',') }}</p>
+                    <p class="font-semibold text-main text-[13px] leading-none">Rp{{ number_format($main->price,0,'.',',') }}</p>
                     <p class="font-normal text-second text-[12px]">/day</p>
                 </div>
             </div>
@@ -185,13 +185,13 @@ To settle the full rental payment prior to vehicle handover.
     <section class="w-full py-5 md:py-10 mt-5 md:mt-16 flex    flex-col px-5 md:px-12 lg:px-20 ">
 <h2 class="text-main font-bold font-poppins text-[20px] md:text-[25px]">Similar Cars</h2>
 <p class="text-second font-poppins font-normal text-[15px] md:text-20px ">Start your big day</p>
-<div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
+<div class="w-full grid grid-cols-2 lg:px-20 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center">
     @foreach ($data as $item)
         
     <a  data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="500" href="{{ route('front.detail',$item->slug)}}" class=" shrink-0 w-42 overflow-hidden md:w-60 px-2 py-3 rounded-xl mt-5 bg-white leading-none shadow-md ">
         <h3 class="font-poppins text-main font-semibold text-[15px] md:text-[20px] uppercase">{{ $item->name }}</h3>
         <p class="text-second font-poppins font-normal mt-1 text-[13px] capitalize">{{ $item->type->name }}</p>
-        <div class=" w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->thumbnail->path) }}" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
+        <div class=" w-full overflow-hidden max-h-24 md:max-h-36 rounded-lg bg-black mt-2"><img src="{{ asset('storage/' . $item->thumbnail->path) }}" loading="lazy" alt=" photo product " class="w-full object-cover object-center hover:scale-125 transition-all duration-500"></div>
         <article class="mt-3 flex flex-row w-full justify-between items-center">
             <p class="text-primary/95 font-semibold font-poppins text-[12px] ">Rp{{ number_format($item->price,0,',','.')}}<span class="font-poppins font-light text-second">/day</span></p>
             <p class="flex flex-row text-[10px] font-semibold font-poppins mt-1 ">({{ $item->star }}/5)  <img src="/svgs/ic-star.svg" alt="icon star" class="w-3 "></p>
