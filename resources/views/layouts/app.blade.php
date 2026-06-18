@@ -3,8 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/svg+xml"  href="{{ asset('svgs/logo.svg') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="{{ $description ?? 'Rental mobil di Solo dengan berbagai macam pilihan mobil, booking online, bayar online.' }}">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="{{ url()->current() }}">
 
+        <meta property="og:title" content="{{ $title ?? 'Vrom - Tempat Rental Mobil Di Solo' }}">
+        <meta property="og:description" content="{{ $description ?? 'Rental mobil di Solo dengan berbagai macam pilihan mobil, booking online, bayar online.' }}">
+        <meta property="og:image" content="{{ $ogImage ?? asset('img/thumbnail-02.webp') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="website">
+        
         <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
