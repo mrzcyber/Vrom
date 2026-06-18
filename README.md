@@ -4,7 +4,7 @@
 
 ![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![Livewire](https://img.shields.io/badge/Livewire-3.x-FB70A9?style=for-the-badge&logo=livewire&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.x-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
@@ -80,7 +80,6 @@ Sistem memastikan satu kendaraan tidak bisa dipesan dua kali di tanggal yang sam
 | Laravel | ^13.0 | Framework utama |
 | Laravel Jetstream | ^5.5 | Scaffolding autentikasi & profil |
 | Laravel Sanctum | ^4.0 | API token authentication |
-| Livewire | ^3.6 | Reactive UI components |
 | Midtrans PHP SDK | ^2.6 | Payment gateway |
 | Spatie Sluggable | ^3.8 | Auto-generate URL slug |
 
@@ -97,6 +96,11 @@ Sistem memastikan satu kendaraan tidak bisa dipesan dua kali di tanggal yang sam
 - **MySQL** — Database utama
 - **Queue System** — Laravel Queue (database driver) untuk job async
 - **Session** — Database-based session management
+  
+### Supporting Tools
+- **Postman** — Sebagai Tools untuk membantu pengetesan sistem di backend
+- **Chrome Extension** — Menguji responsivitas website 
+- **DBdiagram** — Mempermudah dalam pembuatan ERD	
 
 ---
 
